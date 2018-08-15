@@ -1,0 +1,32 @@
+
+Best Practices
+1) define custom modules 
+   rely on component defaults when possible as if defining a template
+   leave out individual resource names to remain flexible
+   maintain a consistent definition style to ease training others
+   reload the component class again last to ensure that all dependencies
+   are also loaded
+2) always check your work before saving
+   % gem install puppet-lint
+   % puppet-lint /etc/puppet/modules
+   % puppet-lint --fix /etc/puppet/modules
+3) always validate installs
+   % gem install rspec-puppet
+   % cd /etc/puppet/modules/<new_mod>/
+   % rspec-puppet-init
+   % mkdir -p spec/fixtures/{manifests,modules}
+   % touch spec/fixtures/manifests/site.pp
+   % vi spec/spec_helper.rb
+   % vi Rakefile
+   
+
+Tips
+1) Because Puppet is developed with Ruby, learn basic Ruby and write plugins
+
+References
+https://www.devco.net/archives/2012/12/13/simple-puppet-module-structure-redux.php
+
+https://puppet.com/docs/puppet/5.5/style_guide.html
+http://rspec-puppet.com/tutorial/
+http://rspec-puppet.com/documentation/
+http://rspec-puppet.com/documentation/setup/

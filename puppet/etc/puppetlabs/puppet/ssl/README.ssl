@@ -1,0 +1,48 @@
+[root@localhost ssl]# ls -lR
+.:
+total 0
+drwxr-xr-x. 5 puppet puppet 140 Aug 15 10:14 ca
+drwxr-xr-x. 2 puppet puppet   6 Aug 15 10:13 certificate_requests
+drwxr-xr-x. 2 puppet puppet   6 Aug 15 10:13 certs
+drwxr-x---. 2 puppet puppet   6 Aug 15 10:13 private
+drwxr-x---. 2 puppet puppet  39 Aug 15 10:13 private_keys
+drwxr-xr-x. 2 puppet puppet  39 Aug 15 10:13 public_keys
+
+./ca:
+total 20
+-rw-r--r--. 1 puppet puppet  971 Aug 15 10:14 ca_crl.pem
+-rw-r--r--. 1 puppet puppet 1984 Aug 15 10:14 ca_crt.pem
+-rw-r-----. 1 puppet puppet 3243 Aug 15 10:14 ca_key.pem
+-rw-r--r--. 1 puppet puppet   90 Aug 15 10:14 inventory.txt
+drwxr-x---. 2 puppet puppet   21 Aug 15 10:14 private
+drwxr-xr-x. 2 puppet puppet    6 Aug 15 10:14 requests
+-rw-r--r--. 1 puppet puppet    4 Aug 15 10:14 serial
+drwxr-xr-x. 2 puppet puppet    6 Aug 15 10:14 signed
+
+./ca/private:
+total 4
+-rw-r-----. 1 puppet puppet 20 Aug 15 10:14 ca.pass
+
+./ca/requests:
+total 0
+
+./ca/signed:
+total 0
+
+./certificate_requests:
+total 0
+
+./certs:
+total 0
+
+./private:
+total 0
+
+./private_keys:
+total 4
+-rw-r-----. 1 puppet puppet 3243 Aug 15 10:13 localhost.localdomain.pem
+
+./public_keys:
+total 4
+-rw-r--r--. 1 puppet puppet 800 Aug 15 10:13 localhost.localdomain.pem
+

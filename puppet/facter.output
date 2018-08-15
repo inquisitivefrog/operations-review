@@ -1,0 +1,338 @@
+[vagrant@localhost ~]$ /opt/puppetlabs/bin/facter
+aio_agent_version => 1.10.14
+augeas => {
+  version => "1.4.0"
+}
+disks => {
+  sda => {
+    model => "VBOX HARDDISK",
+    size => "40.00 GiB",
+    size_bytes => 42949672960,
+    vendor => "ATA"
+  }
+}
+dmi => {
+  bios => {
+    release_date => "12/01/2006",
+    vendor => "innotek GmbH",
+    version => "VirtualBox"
+  },
+  board => {
+    manufacturer => "Oracle Corporation",
+    product => "VirtualBox"
+  },
+  chassis => {
+    type => "Other"
+  },
+  manufacturer => "innotek GmbH",
+  product => {
+    name => "VirtualBox"
+  }
+}
+facterversion => 3.6.10
+filesystems => xfs
+identity => {
+  gid => 1000,
+  group => "vagrant",
+  privileged => false,
+  uid => 1000,
+  user => "vagrant"
+}
+is_virtual => true
+kernel => Linux
+kernelmajversion => 3.10
+kernelrelease => 3.10.0-862.2.3.el7.x86_64
+kernelversion => 3.10.0
+load_averages => {
+  15m => 0.05,
+  1m => 0,
+  5m => 0.04
+}
+memory => {
+  swap => {
+    available => "1.50 GiB",
+    available_bytes => 1610076160,
+    capacity => "0.03%",
+    total => "1.50 GiB",
+    total_bytes => 1610608640,
+    used => "520.00 KiB",
+    used_bytes => 532480
+  },
+  system => {
+    available => "264.59 MiB",
+    available_bytes => 277442560,
+    capacity => "45.75%",
+    total => "487.72 MiB",
+    total_bytes => 511414272,
+    used => "223.13 MiB",
+    used_bytes => 233971712
+  }
+}
+mountpoints => {
+  / => {
+    available => "36.43 GiB",
+    available_bytes => 39111983104,
+    capacity => "2.74%",
+    device => "/dev/mapper/VolGroup00-LogVol00",
+    filesystem => "xfs",
+    options => [
+      "rw",
+      "seclabel",
+      "relatime",
+      "attr2",
+      "inode64",
+      "noquota"
+    ],
+    size => "37.45 GiB",
+    size_bytes => 40212119552,
+    used => "1.02 GiB",
+    used_bytes => 1100136448
+  },
+  /boot => {
+    available => "951.43 MiB",
+    available_bytes => 997642240,
+    capacity => "6.17%",
+    device => "/dev/sda2",
+    filesystem => "xfs",
+    options => [
+      "rw",
+      "seclabel",
+      "relatime",
+      "attr2",
+      "inode64",
+      "noquota"
+    ],
+    size => "1014.00 MiB",
+    size_bytes => 1063256064,
+    used => "62.57 MiB",
+    used_bytes => 65613824
+  },
+  /dev/shm => {
+    available => "243.86 MiB",
+    available_bytes => 255705088,
+    capacity => "0%",
+    device => "tmpfs",
+    filesystem => "tmpfs",
+    options => [
+      "rw",
+      "seclabel",
+      "nosuid",
+      "nodev"
+    ],
+    size => "243.86 MiB",
+    size_bytes => 255705088,
+    used => "0 bytes",
+    used_bytes => 0
+  },
+  /run => {
+    available => "239.40 MiB",
+    available_bytes => 251031552,
+    capacity => "1.83%",
+    device => "tmpfs",
+    filesystem => "tmpfs",
+    options => [
+      "rw",
+      "seclabel",
+      "nosuid",
+      "nodev",
+      "mode=755"
+    ],
+    size => "243.86 MiB",
+    size_bytes => 255705088,
+    used => "4.46 MiB",
+    used_bytes => 4673536
+  },
+  /run/user/1000 => {
+    available => "48.77 MiB",
+    available_bytes => 51142656,
+    capacity => "0%",
+    device => "tmpfs",
+    filesystem => "tmpfs",
+    options => [
+      "rw",
+      "seclabel",
+      "nosuid",
+      "nodev",
+      "relatime",
+      "size=49944k",
+      "mode=700",
+      "uid=1000",
+      "gid=1000"
+    ],
+    size => "48.77 MiB",
+    size_bytes => 51142656,
+    used => "0 bytes",
+    used_bytes => 0
+  },
+  /sys/fs/cgroup => {
+    available => "243.86 MiB",
+    available_bytes => 255705088,
+    capacity => "0%",
+    device => "tmpfs",
+    filesystem => "tmpfs",
+    options => [
+      "ro",
+      "seclabel",
+      "nosuid",
+      "nodev",
+      "noexec",
+      "mode=755"
+    ],
+    size => "243.86 MiB",
+    size_bytes => 255705088,
+    used => "0 bytes",
+    used_bytes => 0
+  }
+}
+networking => {
+  domain => "localdomain",
+  fqdn => "localhost.localdomain",
+  hostname => "localhost",
+  interfaces => {
+    eth0 => {
+      bindings => [
+        {
+          address => "10.0.2.15",
+          netmask => "255.255.255.0",
+          network => "10.0.2.0"
+        }
+      ],
+      bindings6 => [
+        {
+          address => "fe80::5054:ff:fec9:c704",
+          netmask => "ffff:ffff:ffff:ffff::",
+          network => "fe80::"
+        }
+      ],
+      ip => "10.0.2.15",
+      ip6 => "fe80::5054:ff:fec9:c704",
+      mac => "52:54:00:c9:c7:04",
+      mtu => 1500,
+      netmask => "255.255.255.0",
+      netmask6 => "ffff:ffff:ffff:ffff::",
+      network => "10.0.2.0",
+      network6 => "fe80::"
+    },
+    lo => {
+      bindings => [
+        {
+          address => "127.0.0.1",
+          netmask => "255.0.0.0",
+          network => "127.0.0.0"
+        }
+      ],
+      bindings6 => [
+        {
+          address => "::1",
+          netmask => "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+          network => "::1"
+        }
+      ],
+      ip => "127.0.0.1",
+      ip6 => "::1",
+      mtu => 65536,
+      netmask => "255.0.0.0",
+      netmask6 => "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+      network => "127.0.0.0",
+      network6 => "::1"
+    }
+  },
+  ip => "10.0.2.15",
+  ip6 => "fe80::5054:ff:fec9:c704",
+  mac => "52:54:00:c9:c7:04",
+  mtu => 1500,
+  netmask => "255.255.255.0",
+  netmask6 => "ffff:ffff:ffff:ffff::",
+  network => "10.0.2.0",
+  network6 => "fe80::",
+  primary => "eth0"
+}
+os => {
+  architecture => "x86_64",
+  family => "RedHat",
+  hardware => "x86_64",
+  name => "CentOS",
+  release => {
+    full => "7.5.1804",
+    major => "7",
+    minor => "5"
+  },
+  selinux => {
+    config_mode => "enforcing",
+    config_policy => "targeted",
+    current_mode => "enforcing",
+    enabled => true,
+    enforced => true,
+    policy_version => "31"
+  }
+}
+partitions => {
+  /dev/mapper/VolGroup00-LogVol00 => {
+    mount => "/",
+    size => "37.47 GiB",
+    size_bytes => 40231763968
+  },
+  /dev/mapper/VolGroup00-LogVol01 => {
+    size => "1.50 GiB",
+    size_bytes => 1610612736
+  },
+  /dev/sda1 => {
+    size => "1.00 MiB",
+    size_bytes => 1048576
+  },
+  /dev/sda2 => {
+    mount => "/boot",
+    size => "1.00 GiB",
+    size_bytes => 1073741824
+  },
+  /dev/sda3 => {
+    size => "39.00 GiB",
+    size_bytes => 41873833984
+  }
+}
+path => /usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/home/vagrant/.local/bin:/home/vagrant/bin
+processors => {
+  count => 1,
+  isa => "x86_64",
+  models => [
+    "Intel(R) Core(TM) i7-7820HQ CPU @ 2.90GHz"
+  ],
+  physicalcount => 1
+}
+ruby => {
+  platform => "x86_64-linux",
+  sitedir => "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
+  version => "2.1.9"
+}
+ssh => {
+  ecdsa => {
+    fingerprints => {
+      sha1 => "SSHFP 3 1 73212b3b2b09e6a59f843deb8c7b3ad8d3d58188",
+      sha256 => "SSHFP 3 2 3fae37b4e722f12da3f70f98e01a5cdd6c0a50adbc02d5ffe558a222525448c6"
+    },
+    key => "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC2eHPNqzaesg04ug0BfRoz7ERoe/o+bmm+5rLZch7XlOYVgX8+QLKorO2TaO2N0SW3kfh2GaZtkgPr/2foaEac="
+  },
+  ed25519 => {
+    fingerprints => {
+      sha1 => "SSHFP 4 1 2ae90bf898450f56f0439815839759f196a9f67b",
+      sha256 => "SSHFP 4 2 5005d9ecfa590ecaf9af95de9f72d13a97fb18c7474004f8e2f3a6b2f6de7fd6"
+    },
+    key => "AAAAC3NzaC1lZDI1NTE5AAAAID4xrYD+vo3kf24G+b2OWSl6qcTajWyuXfE1shBtVl2R"
+  },
+  rsa => {
+    fingerprints => {
+      sha1 => "SSHFP 1 1 71139c81bb61d032457be88d9a0b14fc689cfa3f",
+      sha256 => "SSHFP 1 2 a23915e8d0780ed8d1e0042daa6e49e6874bcfe5e1402b092b9ca47e495c30dd"
+    },
+    key => "AAAAB3NzaC1yc2EAAAADAQABAAABAQDFNFRFrK5dKibYQEU9QmGa+RH/MuWruSUgomt7qavvDGIBbkfN3/tIbIZNjBD0jTAVWaYJHRjKiPQc3gSlUhR2dItyHF3iTYAnnhoLbNAWKxLjJBXYgMRfkcxPmcjvY6wEDOtVZriEm+ftOcRKRyvUCmCqc4URVxO3NwaPwyKB3jiUdx7LmrnqAKdpb+VCIPOjxoXejSE4T+PuXwyVCSuQK6bbVSpL7gal8FQGmQzUVks7BcX+YJI0yAe3mBXmb3XjlqtPaYuvNyrN1EAFMsajKiPs7uDXzz/ArQKB0EEJk2UAb/B2J5JKT9k4cEm3VLmim6Q7r+dj3A6x2a6xR0k7"
+  }
+}
+system_uptime => {
+  days => 0,
+  hours => 1,
+  seconds => 5328,
+  uptime => "1:28 hours"
+}
+timezone => PDT
+virtual => virtualbox
+

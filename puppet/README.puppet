@@ -1,0 +1,86 @@
+
+Basics
+1) Node configuration is stored as a catalog in a filesystem tree as modules 
+   containing manifests, files and templates
+2) All nodes are configured to install and start puppet-agent
+3) One node with access to the filesystem tree is configured to also install
+   and start puppet-master
+4) puppet-master reads catalogue and sends change requests to each puppet-agent
+   causing modules to be installed, removed, configured or reconfigured and
+   started or stopped
+5) Puppet was developed in Ruby but relies heavily on Java as well
+6) Puppet is so popular that many modules are pre-built for easy rapid 
+   install from https://forge.puppet.com/
+
+Caveats
+1) Supposedly if puppet-master sends change requests to more than 30 
+   puppet-agents at the same time, things get sticky but I've only heard this
+   anecdotally as I've never worked with configurations that large
+
+Files
+$ sudo vi /etc/sysconfig/puppetserver
+$ file /opt/puppetlabs/bin/facter
+$ file /opt/puppetlabs/bin/puppet
+
+Installation
+$ sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+$ sudo yum install -y puppetserver
+Installed:
+  puppetserver.noarch 0:2.8.1-1.el7                                                                                                
+Dependency Installed:
+  copy-jdk-configs.noarch 0:3.3-10.el7_5                   
+  java-1.8.0-openjdk-headless.x86_64 1:1.8.0.181-3.b13.el7_5             
+  javapackages-tools.noarch 0:3.4.1-11.el7                 
+  libjpeg-turbo.x86_64 0:1.2.90-5.el7                                    
+  libxslt.x86_64 0:1.1.28-5.el7                            
+  lksctp-tools.x86_64 0:1.0.17-2.el7                                     
+  net-tools.x86_64 0:2.0-0.22.20131004git.el7              
+  puppet-agent.x86_64 0:1.10.14-1.el7                                    
+  python-javapackages.noarch 0:3.4.1-11.el7                
+  python-lxml.x86_64 0:3.2.1-4.el7                                       
+  tzdata-java.noarch 0:2018e-3.el7                        
+
+Dependency Updated:
+  nspr.x86_64 0:4.19.0-1.el7_5                    
+  nss.x86_64 0:3.36.0-5.el7_5              
+  nss-softokn.x86_64 0:3.36.0-5.el7_5     
+  nss-softokn-freebl.x86_64 0:3.36.0-5.el7_5      
+  nss-sysinit.x86_64 0:3.36.0-5.el7_5      
+  nss-tools.x86_64 0:3.36.0-5.el7_5       
+  nss-util.x86_64 0:3.36.0-1.el7_5               
+$ sudo vi /etc/sysconfig/puppetserver
+JAVA_ARGS="-Xms500m -Xmx500m"
+$ sudo systemctl start puppetserver
+$ sudo systemctl enable puppetserver 
+$ sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+$ sudo yum install -y puppet-agent
+Package puppet-agent-1.10.14-1.el7.x86_64 already installed and latest version
+Nothing to do
+$ sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true
+$ sudo /opt/puppetlabs/bin/puppet module install puppetlabs-apache
+$ sudo /opt/puppetlabs/bin/puppet module install puppetlabs-nginx
+$ sudo /opt/puppetlabs/bin/puppet module install puppetlabs-mysql
+$ sudo /opt/puppetlabs/bin/puppet module install puppetlabs-postgresql
+$ sudo /opt/puppetlabs/bin/puppet module install saz-memcached --version 3.3.0
+$ sudo /opt/puppetlabs/bin/puppet module install puppet-rabbitmq --version 8.2.2
+$ sudo /opt/puppetlabs/bin/puppet module install puppet-cassandra --version 2.7.1
+NOTE: additional pre-built modules can be found at https://forge.puppet.com/
+      but there may be unclear dependencies
+
+Register
+$ sudo /opt/puppetlabs/bin/puppet cert list --all
+# sign one host
+$ sudo /opt/puppetlabs/bin/puppet cert sign mynode.mysite.com
+# sign them all
+$ sudo /opt/puppetlabs/bin/puppet cert sign --all
+# remove one host
+$ sudo /opt/puppetlabs/bin/puppet cert clean mynode
+
+Configure
+$ sudo touch /etc/puppetlabs/code/environments/production/manifests/site.pp
+$ sudo vi /etc/puppetlabs/code/environments/production/manifests/site.pp
+$ /opt/puppetlabs/bin/puppet agent --test
+
+Manual Update
+$ sudo /opt/puppetlabs/bin/puppet apply /path/to/your/manifest/init.pp
+

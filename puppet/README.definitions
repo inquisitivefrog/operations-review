@@ -1,0 +1,26 @@
+Interview Questions
+https://www.janbasktraining.com/blog/puppet-interview-questions/
+https://www.edureka.co/blog/interview-questions/puppet-interview-questions/
+
+Definitions
+1) puppet: a configuration management tool to automate administration tasks
+           in order to configure a node with needed kernel or shell tweaks
+           and particularly components, libraries, languages and services.
+           it is master/slave based so puppet master manages all changes and
+           pushes change requests to puppet agents pre-installed on slave nodes
+2) manifest: component configuration details such as which operating system
+             component to install, which configuration changes to implement
+             beyond vanilla and how to start/stop the service.  all details
+             are in config files in module subdirs
+             manifest.pp
+3) module: a subdir of manifests, facts and supportive data needed to
+           fully install and configure an operating system component or
+           service
+4) fact: node specific details such as SSH key, IP or MAC address, operating
+         system, state: bare metal, virtual machine
+5) facter: a library that tracks node facts for the puppet master
+6) catalog: the document received from the puppet master by the puppet agent
+            defining what to install, configure and enable in what order
+7) DSL: definition language puppet uses to define configuration and avoid
+        forcing sysadmin to learn to code
+
