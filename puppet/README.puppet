@@ -64,6 +64,7 @@ $ sudo /opt/puppetlabs/bin/puppet module install puppetlabs-postgresql
 $ sudo /opt/puppetlabs/bin/puppet module install saz-memcached --version 3.3.0
 $ sudo /opt/puppetlabs/bin/puppet module install puppet-rabbitmq --version 8.2.2
 $ sudo /opt/puppetlabs/bin/puppet module install puppet-cassandra --version 2.7.1
+$ sudo /opt/puppetlabs/bin/puppet module install thias-nagios --version 1.0.10
 NOTE: additional pre-built modules can be found at https://forge.puppet.com/
       but there may be unclear dependencies
 
