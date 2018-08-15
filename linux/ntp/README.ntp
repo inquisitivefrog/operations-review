@@ -1,0 +1,27 @@
+
+Basics
+1) Data Centers consist of many if not hundreds of nodes
+2) Nodes communicate among themselves all the time so CPU clocks must be synchronized
+3) The easiest way to synchronize is to all reference one node or all reference an
+   external node, assuming network access is constant
+4) ntp is the Network Time Protocol for remaining in sync with a US Government Clock
+
+Basics
+
+Files
+$ sudo vi /etc/ntp.conf
+$ ls -l /usr/sbin/ntpd
+
+Logs
+$ sudo ls /etc/ntpstats/
+$ sudo grep ntp /var/log/messages
+
+Installation
+$ timedatectl list-timezones
+$ sudo timedatectl set-timezone America/Los_Angeles
+$ sudo yum install -y ntp
+$ sudo systemctl restart ntpd
+$ sudo systemctl enable ntpd
+
+Configuration
+$ sudo vi /etc/ntp.conf

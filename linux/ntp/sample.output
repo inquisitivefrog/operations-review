@@ -1,0 +1,22 @@
+[vagrant@localhost ~]$ sudo grep ntp /var/log/messages 
+Aug 15 15:40:47 localhost kernel: Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes)
+Aug 15 15:47:35 localhost kernel: Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes)
+Aug 15 16:55:20 localhost yum[1586]: Installed: ntpdate-4.2.6p5-28.el7.centos.x86_64
+Aug 15 16:55:20 localhost yum[1586]: Installed: ntp-4.2.6p5-28.el7.centos.x86_64
+Aug 15 17:00:52 localhost ntpd[1686]: ntpd 4.2.6p5@1.2349-o Fri Apr 13 12:52:27 UTC 2018 (1)
+Aug 15 17:00:52 localhost ntpd[1687]: proto: precision = 0.047 usec
+Aug 15 17:00:52 localhost ntpd[1687]: 0.0.0.0 c01d 0d kern kernel time sync enabled
+Aug 15 17:00:52 localhost ntpd[1687]: Listen and drop on 0 v4wildcard 0.0.0.0 UDP 123
+Aug 15 17:00:52 localhost ntpd[1687]: Listen and drop on 1 v6wildcard :: UDP 123
+Aug 15 17:00:52 localhost ntpd[1687]: Listen normally on 2 lo 127.0.0.1 UDP 123
+Aug 15 17:00:52 localhost ntpd[1687]: Listen normally on 3 eth0 10.0.2.15 UDP 123
+Aug 15 17:00:52 localhost ntpd[1687]: Listen normally on 4 lo ::1 UDP 123
+Aug 15 17:00:52 localhost ntpd[1687]: Listen normally on 5 eth0 fe80::5054:ff:fec9:c704 UDP 123
+Aug 15 17:00:52 localhost ntpd[1687]: Listening on routing socket on fd #22 for interface updates
+Aug 15 17:00:52 localhost ntpd[1687]: 0.0.0.0 c016 06 restart
+Aug 15 17:00:52 localhost ntpd[1687]: 0.0.0.0 c012 02 freq_set kernel 0.000 PPM
+Aug 15 17:00:52 localhost ntpd[1687]: 0.0.0.0 c011 01 freq_not_set
+Aug 15 17:02:46 localhost ntpd[1687]: 0.0.0.0 c61c 0c clock_step +106.826364 s
+Aug 15 17:02:46 localhost ntpd[1687]: 0.0.0.0 c614 04 freq_mode
+Aug 15 17:02:47 localhost ntpd[1687]: 0.0.0.0 c618 08 no_sys_peer
+
