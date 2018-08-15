@@ -1,0 +1,16 @@
+Host Commands
+$ systemctl list-unit-files
+# halt
+# reboot
+# shutdown
+# kill init
+# ldconfig
+# lsmod
+# dmesg
+$ domainname
+$ hostname
+$ ps
+$ top
+$ nice
+$ id
+$ who

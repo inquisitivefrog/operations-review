@@ -1,0 +1,15 @@
+Critical Files
+$ ls /etc/issue
+$ ls /var/log/dmesg
+$ ls /var/log/boot.log
+$ ls /etc/rc[0-6].d
+$ ls /proc
+$ ls /boot
+
+Critical Shell Paths
+$ ls /sbin
+$ ls /bin
+$ ls /usr/sbin
+$ ls /usr/bin
+$ ls /usr/local/bin
+$ ls /etc

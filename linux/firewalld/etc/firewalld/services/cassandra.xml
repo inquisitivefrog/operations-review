@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>Cassandra</short>
+  <description>Cassandra Database Server</description>
+  <port protocol="tcp" port="7000,7001,7199,9042"/>
+</service>

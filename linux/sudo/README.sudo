@@ -1,0 +1,15 @@
+
+Basics
+1) Too many cooks spoil the broth
+2) When IT or DevOps consists of a small team, then it is no longer a great
+   idea to hand out super user privileges willy nilly as audit trails get
+   muddled
+3) Linux proposed using sudo instead of su wherein every staff member is
+   registered in /etc/sudoers
+4) This allows easy and rapid removal of rights for problematic employees
+   or employees that have left the building
+
+Config Files
+$ ls -l /etc/sudoers
+-r--r-----. 1 root root 6076 Aug 14 02:20 /etc/sudoers
+$ sudo vi /etc/sudoers

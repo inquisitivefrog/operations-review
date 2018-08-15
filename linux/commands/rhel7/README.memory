@@ -1,0 +1,6 @@
+Memory Commands
+# vmstat
+$ free
+$ swapon
+$ swapoff
+$ top

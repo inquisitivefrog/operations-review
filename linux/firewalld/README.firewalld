@@ -1,0 +1,53 @@
+
+Basics
+1) firewalld replaces iptables
+2) firewalld is a bit easier to use as many common services if vanilla
+   configured can be referenced by name
+   see /usr/lib/firewalld/services/
+3) firewalld enables or disables port and protocol blocking per
+   network interface
+
+Files
+$ file /usr/sbin/firewalld
+/usr/sbin/firewalld: Python script, ASCII text executable
+$ ls /usr/lib/firewalld/services/
+$ sudo ls /etc/firewalld/
+
+Logs
+$ sudo ls -l /var/log/firewalld
+
+Installation
+$ sudo yum install -y firewalld
+
+Configuration
+$ sudo systemctl enable firewalld
+$ sudo reboot
+$ sudo firewall-cmd --state
+output
+running
+$ sudo firewall-cmd --zone=public --permanent --add-service=ssh
+$ sudo firewall-cmd --zone=public --permanent --add-service=puppetmaster
+$ sudo firewall-cmd --zone-public --permanent --add-service=http
+$ sudo firewall-cmd --zone-public --permanent --add-service=https
+$ sudo firewall-cmd --zone-public --permanent --add-port=5000/tcp
+
+Status
+$ firewall-cmd --get-default-zone
+output
+public
+$ firewall-cmd --get-active-zones
+output
+public
+  interfaces: eth0
+$ firewall-cmd --get-zones
+output
+  block dmz external home internal public trusted work
+$ sudo firewall-cmd --list-all
+$ sudo firewall-cmd --get-services
+$ sudo firewall-cmd --zone=public --list-ports
+$ sudo iptables -L
+
+Define Custom Service
+$ sudo cp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/cassandra.xml
+$ sudo vi /etc/firewalld/services/cassandra.xml
+

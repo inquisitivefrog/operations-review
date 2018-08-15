@@ -1,0 +1,10 @@
+Hardware Config
+# dmsetup
+# dmstats
+# dhclient
+
+Repairs
+# fsck
+# tune2fs
+# strings
+# sync

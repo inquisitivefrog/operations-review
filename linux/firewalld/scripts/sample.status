@@ -1,0 +1,137 @@
+[vagrant@localhost ~]$ firewall-cmd --get-default-zone
+public
+[vagrant@localhost ~]$ firewall-cmd --get-active-zones
+public
+  interfaces: eth0
+[vagrant@localhost ~]$ firewall-cmd --get-zones       
+block dmz drop external home internal public trusted work
+[vagrant@localhost ~]$ firewall-cmd --list-all 
+Authorization failed.
+    Make sure polkit agent is running or run the application as superuser.
+[vagrant@localhost ~]$ sudo firewall-cmd --list-all
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: eth0
+  sources: 
+  services: ssh dhcpv6-client http
+  ports: 
+  protocols: 
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	
+[vagrant@localhost ~]$ sudo firewall-cmd --get-services
+RH-Satellite-6 amanda-client amanda-k5-client bacula bacula-client bitcoin bitcoin-rpc bitcoin-testnet bitcoin-testnet-rpc ceph ceph-mon cfengine condor-collector ctdb dhcp dhcpv6 dhcpv6-client dns docker-registry dropbox-lansync elasticsearch freeipa-ldap freeipa-ldaps freeipa-replication freeipa-trust ftp ganglia-client ganglia-master high-availability http https imap imaps ipp ipp-client ipsec iscsi-target kadmin kerberos kibana klogin kpasswd kshell ldap ldaps libvirt libvirt-tls managesieve mdns mosh mountd ms-wbt mssql mysql nfs nfs3 nrpe ntp openvpn ovirt-imageio ovirt-storageconsole ovirt-vmconsole pmcd pmproxy pmwebapi pmwebapis pop3 pop3s postgresql privoxy proxy-dhcp ptp pulseaudio puppetmaster quassel radius rpc-bind rsh rsyncd samba samba-client sane sip sips smtp smtp-submission smtps snmp snmptrap spideroak-lansync squid ssh synergy syslog syslog-tls telnet tftp tftp-client tinc tor-socks transmission-client vdsm vnc-server wbem-https xmpp-bosh xmpp-client xmpp-local xmpp-server
+[vagrant@localhost ~]$ sudo firewall-cmd --zone=public --list-ports
+
+[vagrant@localhost ~]$ sudo iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  anywhere             anywhere            
+INPUT_direct  all  --  anywhere             anywhere            
+INPUT_ZONES_SOURCE  all  --  anywhere             anywhere            
+INPUT_ZONES  all  --  anywhere             anywhere            
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  anywhere             anywhere            
+FORWARD_direct  all  --  anywhere             anywhere            
+FORWARD_IN_ZONES_SOURCE  all  --  anywhere             anywhere            
+FORWARD_IN_ZONES  all  --  anywhere             anywhere            
+FORWARD_OUT_ZONES_SOURCE  all  --  anywhere             anywhere            
+FORWARD_OUT_ZONES  all  --  anywhere             anywhere            
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+OUTPUT_direct  all  --  anywhere             anywhere            
+
+Chain FORWARD_IN_ZONES (1 references)
+target     prot opt source               destination         
+FWDI_public  all  --  anywhere             anywhere            [goto] 
+FWDI_public  all  --  anywhere             anywhere            [goto] 
+
+Chain FORWARD_IN_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_OUT_ZONES (1 references)
+target     prot opt source               destination         
+FWDO_public  all  --  anywhere             anywhere            [goto] 
+FWDO_public  all  --  anywhere             anywhere            [goto] 
+
+Chain FORWARD_OUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_direct (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public (2 references)
+target     prot opt source               destination         
+FWDI_public_log  all  --  anywhere             anywhere            
+FWDI_public_deny  all  --  anywhere             anywhere            
+FWDI_public_allow  all  --  anywhere             anywhere            
+ACCEPT     icmp --  anywhere             anywhere            
+
+Chain FWDI_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public (2 references)
+target     prot opt source               destination         
+FWDO_public_log  all  --  anywhere             anywhere            
+FWDO_public_deny  all  --  anywhere             anywhere            
+FWDO_public_allow  all  --  anywhere             anywhere            
+
+Chain FWDO_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_log (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_ZONES (1 references)
+target     prot opt source               destination         
+IN_public  all  --  anywhere             anywhere            [goto] 
+IN_public  all  --  anywhere             anywhere            [goto] 
+
+Chain INPUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_direct (1 references)
+target     prot opt source               destination         
+
+Chain IN_public (2 references)
+target     prot opt source               destination         
+IN_public_log  all  --  anywhere             anywhere            
+IN_public_deny  all  --  anywhere             anywhere            
+IN_public_allow  all  --  anywhere             anywhere            
+ACCEPT     icmp --  anywhere             anywhere            
+
+Chain IN_public_allow (1 references)
+target     prot opt source               destination         
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:ssh ctstate NEW
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http ctstate NEW
+
+Chain IN_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain IN_public_log (1 references)
+target     prot opt source               destination         
+
+Chain OUTPUT_direct (1 references)
+target     prot opt source               destination 

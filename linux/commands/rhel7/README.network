@@ -1,0 +1,12 @@
+Network Commands
+$ arping
+$ dhclient
+$ ping
+$ traceroute
+$ route
+# mountstats
+# nfsiostat
+# rpcinfo
+# showmount
+$ curl
+$ nmap

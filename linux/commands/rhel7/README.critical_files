@@ -1,0 +1,21 @@
+Critical Files
+$ ls /etc/issue
+$ ls /var/log/messages
+$ ls /var/log/boot.log
+$ ls /etc/rc.d/
+$ ls /proc
+$ ls /boot
+
+Critical Shell Paths
+$ ls /sbin
+$ ls /bin
+$ ls /usr/local/bin
+$ ls /etc
+
+Critical Commands
+# systemctl status --all
+# nmcli device show
+# nmcli connection show
+# journalctl --catalog
+# journalctl --system
+# journalctl --dmesg
