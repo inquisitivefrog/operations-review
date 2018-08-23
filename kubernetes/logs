@@ -1,0 +1,3 @@
+$ kubectl logs kubernetes-bootcamp-5c69669756-wpsq9
+Kubernetes Bootcamp App Started At: 2018-08-23T20:31:16.928Z | Running On:  kubernetes-bootcamp-5c69669756-wpsq9
+

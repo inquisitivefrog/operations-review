@@ -1,0 +1,192 @@
+$ kubectl describe pods
+Name:           kubernetes-bootcamp-5c69669756-wpsq9
+Namespace:      default
+Node:           minikube/172.17.0.25
+Start Time:     Thu, 23 Aug 2018 20:31:16 +0000
+Labels:         pod-template-hash=1725225312
+                run=kubernetes-bootcamp
+Annotations:    <none>
+Status:         Running
+IP:             172.18.0.4
+Controlled By:  ReplicaSet/kubernetes-bootcamp-5c69669756
+Containers:
+  kubernetes-bootcamp:
+    Container ID:   docker://dd1d364b9d9c30466bd91a01b9f1b40c0b164e967b8fde6ca83a5c3385fe731b
+    Image:          gcr.io/google-samples/kubernetes-bootcamp:v1
+    Image ID:       docker-pullable://gcr.io/google-samples/kubernetes-bootcamp@sha256:0d6b8ee63bb57c5f5b6156f446b3bc3b3c143d233037f3a2f00e279c8fcc64af
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 23 Aug 2018 20:31:16 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-frcrh (ro)
+Conditions:
+  Type           Status
+  Initialized    True
+  Ready          True
+  PodScheduled   True
+Volumes:
+  default-token-frcrh:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-frcrh
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason                 Age   From               Message
+  ----    ------                 ----  ----               -------
+  Normal  Scheduled              9m    default-scheduler  Successfully assigned kubernetes-bootcamp-5c69669756-wpsq9 to minikube
+  Normal  SuccessfulMountVolume  9m    kubelet, minikube  MountVolume.SetUp succeededfor volume "default-token-frcrh"
+  Normal  Pulled                 9m    kubelet, minikube  Container image "gcr.io/google-samples/kubernetes-bootcamp:v1" already present on machine
+  Normal  Created                9m    kubelet, minikube  Created container
+  Normal  Started                9m    kubelet, minikube  Started container
+
+
+Name:           kubernetes-bootcamp2-5785d74865-qqjdd
+Namespace:      default
+Node:           minikube/172.17.0.25
+Start Time:     Thu, 23 Aug 2018 20:33:06 +0000
+Labels:         pod-template-hash=1341830421
+                run=kubernetes-bootcamp2
+Annotations:    <none>
+Status:         Running
+IP:             172.18.0.5
+Controlled By:  ReplicaSet/kubernetes-bootcamp2-5785d74865
+Containers:
+  kubernetes-bootcamp2:
+    Container ID:   docker://9699ebbb2eb699223cba36dbb21d5263ce48cfefd5e1a90d0ae021513c02cc5d
+    Image:          gcr.io/google-samples/kubernetes-bootcamp:v1
+    Image ID:       docker-pullable://gcr.io/google-samples/kubernetes-bootcamp@sha256:0d6b8ee63bb57c5f5b6156f446b3bc3b3c143d233037f3a2f00e279c8fcc64af
+    Port:           8081/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 23 Aug 2018 20:33:07 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-frcrh (ro)
+Conditions:
+  Type           Status
+  Initialized    True
+  Ready          True
+  PodScheduled   True
+Volumes:
+  default-token-frcrh:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-frcrh
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason                 Age   From               Message
+  ----    ------                 ----  ----               -------
+  Normal  Scheduled              7m    default-scheduler  Successfully assigned kubernetes-bootcamp2-5785d74865-qqjdd to minikube
+  Normal  SuccessfulMountVolume  7m    kubelet, minikube  MountVolume.SetUp succeededfor volume "default-token-frcrh"
+  Normal  Pulled                 7m    kubelet, minikube  Container image "gcr.io/google-samples/kubernetes-bootcamp:v1" already present on machine
+  Normal  Created                7m    kubelet, minikube  Created container
+  Normal  Started                7m    kubelet, minikube  Started container
+
+
+Name:           kubernetes-bootcamp3-bd5ffc95d-gpx4c
+Namespace:      default
+Node:           minikube/172.17.0.25
+Start Time:     Thu, 23 Aug 2018 20:33:18 +0000
+Labels:         pod-template-hash=681997518
+                run=kubernetes-bootcamp3
+Annotations:    <none>
+Status:         Running
+IP:             172.18.0.6
+Controlled By:  ReplicaSet/kubernetes-bootcamp3-bd5ffc95d
+Containers:
+  kubernetes-bootcamp3:
+    Container ID:   docker://ae5e402042ce157af96f36eedc5ffa12b2fff8b78c2e8346996faf128452ef02
+    Image:          gcr.io/google-samples/kubernetes-bootcamp:v1
+    Image ID:       docker-pullable://gcr.io/google-samples/kubernetes-bootcamp@sha256:0d6b8ee63bb57c5f5b6156f446b3bc3b3c143d233037f3a2f00e279c8fcc64af
+    Port:           8082/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 23 Aug 2018 20:33:18 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-frcrh (ro)
+Conditions:
+  Type           Status
+  Initialized    True
+  Ready          True
+  PodScheduled   True
+Volumes:
+  default-token-frcrh:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-frcrh
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason                 Age   From               Message
+  ----    ------                 ----  ----               -------
+  Normal  Scheduled              7m    default-scheduler  Successfully assigned kubernetes-bootcamp3-bd5ffc95d-gpx4c to minikube
+  Normal  SuccessfulMountVolume  7m    kubelet, minikube  MountVolume.SetUp succeededfor volume "default-token-frcrh"
+  Normal  Pulled                 7m    kubelet, minikube  Container image "gcr.io/google-samples/kubernetes-bootcamp:v1" already present on machine
+  Normal  Created                7m    kubelet, minikube  Created container
+  Normal  Started                7m    kubelet, minikube  Started container
+
+$ kubectl describe pods kubernetes-bootcamp3-bd5ffc95d-gpx4c
+Name:           kubernetes-bootcamp3-bd5ffc95d-gpx4c
+Namespace:      default
+Node:           minikube/172.17.0.25
+Start Time:     Thu, 23 Aug 2018 20:33:18 +0000
+Labels:         pod-template-hash=681997518
+                run=kubernetes-bootcamp3
+Annotations:    <none>
+Status:         Running
+IP:             172.18.0.6
+Controlled By:  ReplicaSet/kubernetes-bootcamp3-bd5ffc95d
+Containers:
+  kubernetes-bootcamp3:
+    Container ID:   docker://ae5e402042ce157af96f36eedc5ffa12b2fff8b78c2e8346996faf128452ef02
+    Image:          gcr.io/google-samples/kubernetes-bootcamp:v1
+    Image ID:       docker-pullable://gcr.io/google-samples/kubernetes-bootcamp@sha256:0d6b8ee63bb57c5f5b6156f446b3bc3b3c143d233037f3a2f00e279c8fcc64af
+    Port:           8082/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 23 Aug 2018 20:33:18 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-frcrh (ro)
+Conditions:
+  Type           Status
+  Initialized    True
+  Ready          True
+  PodScheduled   True
+Volumes:
+  default-token-frcrh:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-frcrh
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason                 Age   From               Message
+  ----    ------                 ----  ----               -------
+  Normal  Scheduled              7m    default-scheduler  Successfully assigned kubernetes-bootcamp3-bd5ffc95d-gpx4c to minikube
+  Normal  SuccessfulMountVolume  7m    kubelet, minikube  MountVolume.SetUp succeededfor volume "default-token-frcrh"
+  Normal  Pulled                 7m    kubelet, minikube  Container image "gcr.io/google-samples/kubernetes-bootcamp:v1" already present on machine
+  Normal  Created                7m    kubelet, minikube  Created container
+  Normal  Started                7m    kubelet, minikube  Started container
+$

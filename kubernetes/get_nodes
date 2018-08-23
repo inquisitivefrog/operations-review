@@ -1,0 +1,3 @@
+$ kubectl get nodes
+NAME       STATUS    ROLES     AGE       VERSION
+minikube   Ready     <none>    1m        v1.10.0

@@ -1,0 +1,5 @@
+$ kubectl get pods
+NAME                                    READY     STATUS    RESTARTS   AGE
+kubernetes-bootcamp-5c69669756-wpsq9    1/1       Running   0          19m
+kubernetes-bootcamp2-5785d74865-qqjdd   1/1       Running   0          17m
+kubernetes-bootcamp3-bd5ffc95d-pq4k7    1/1       Running   0          6m

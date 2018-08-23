@@ -1,0 +1,30 @@
+
+Basics
+1) Kubernetes is free toolset from Google
+   https://kubernetes.io/
+   https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl
+2) Kubernetes consists of a collection subcommands for CLI command kubectl
+   $ kubectl get nodes
+   $ kubectl run <name> --image=<image>:<version> --port=<port>
+   $ kubectl delete pods/<name>
+   $ kubectl get deployments
+   $ kubectl get pods
+   $ kubectl get services
+   $ kubectl proxy
+   $ curl http://localhost:8001/version
+   $ kubectl logs <name>
+   $ kubectl describe pods <name>
+   $ kubectl exec -it <name> bash
+   $ kubectl apply -f <config>.yaml
+
+3) Kubernetes prefers Linux Containers: Docker in particular
+   https://hub.docker.com/
+4) Kubernetes is Cloud Platform Agnostic
+   a) Azure
+   b) AWS
+   c) Google Cloud
+5) Kubernetes CronJob schedules cron jobs
+6) Kubernetes application container Health Checks can be added to <config>.yaml
+   with 
+
+

@@ -1,0 +1,6 @@
+$ kubectl run kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8080
+deployment.apps "kubernetes-bootcamp" created
+ kubectl run kubernetes-bootcamp2 --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8081
+deployment.apps "kubernetes-bootcamp2" created
+$ kubectl run kubernetes-bootcamp3 --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8082
+deployment.apps "kubernetes-bootcamp3" created

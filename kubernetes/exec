@@ -1,0 +1,18 @@
+
+$ kubectl exec -it kubernetes-bootcamp-5c69669756-wpsq9 bash
+root@kubernetes-bootcamp-5c69669756-wpsq9:/# ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 20:31 ?        00:00:00 /bin/sh -c node server.js
+root         6     1  0 20:31 ?        00:00:00 node server.js
+root        23     0  0 20:58 ?        00:00:00 bash
+root        28    23  0 20:58 ?        00:00:00 ps -ef
+root@kubernetes-bootcamp-5c69669756-wpsq9:/# pwd
+/
+root@kubernetes-bootcamp-5c69669756-wpsq9:/# ls
+bin   core  etc   lib    media  opt   root  sbin       srv  tmp  var
+boot  dev   home  lib64  mnt    proc  run   server.js  sys  usr
+root@kubernetes-bootcamp-5c69669756-wpsq9:/# exit
+exit
+$
+
+
