@@ -1,0 +1,14 @@
+
+Cash Cow
+1) monitor memcached
+2) monitor nginx
+3) monitor celery queues
+4) monitor apache
+5) monitor redis
+6) check celery queues
+
+Next Generation
+1) switched to Zabbix to save money
+   https://share.zabbix.com/virtualization/containers/lxc-containers-monitoring
+2) DataDog also capable of integrating with Linux Containers
+   https://www.datadoghq.com/lpg/?utm_source=Advertisement&utm_medium=GoogleAdsBrand&utm_campaign=GoogleAdsBrand-US&utm_content=Datadog&utm_keyword=%7Bkeyword%7D&utm_matchtype=%7Bmatchtype%7D&gclid=CjwKCAjwzqPcBRAnEiwAzKRgSzTvQdPltymywJBKL1y9loIHFTSaBxJUYav87pFLm5o9Z2pkF97yEBoC8E8QAvD_BwE

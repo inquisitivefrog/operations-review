@@ -1,0 +1,13 @@
+init_config:
+
+instances:
+   -   host: <%= fqdn %>
+       port: 6379
+       db: 1
+       # password: mypassword
+       queue_keys: # A list of keys associated with the Celery queues
+            - write
+            - slowwrite
+            - cache
+            - default
+            - email

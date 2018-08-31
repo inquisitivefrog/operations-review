@@ -1,0 +1,53 @@
+/Users/tim/Documents/workspace/dev/operations-review/datadog 2018-08-02
+
+Basics
+1) SaaS so register with datadog.com and pay monthly fee
+2) download datadog-agent, install on each host
+3) configure each to forward stats collected to account on datadog.com
+   NOTE: can also configure to integrate with AWS CloudWatch via AWS credentials
+4) configure to monitor specific services
+5) login datadog.com
+6) build dashboards as needed that display metrics collected
+   NOTE: choose between TimeBoard and ScreenBoard
+   a) select an existing Integration from menu and drag to dashboard
+   b) add custom integration that monitors process of choice
+   c) screenboards show a higher level view
+7) wait 15 min then view graph for confirmation that monitoring is working
+8) add alert for condition
+9) add multi alert 
+8) graph saved for one year
+
+Prep VM
+% cd ~/Documents/workspace/dev/virtualmachines/centos/
+% set VAGRANT_LOG=INFO
+% vagrant up
+
+Install Agent
+% vagrant ssh default
+$ DD_API_KEY=eb91fd51b65a61564836d0eae85e6902 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
+$ sudo systemctl start datadog-agent
+$ sudo systemctl status datadog-agent
+$ sudo systemctl stop datadog-agent
+$ su
+Password: vagrant
+# vi /etc/datadog-agent/datadog.yaml
+NOTE: api_key pre-defined in this demo version
+
+Advantages
+1) Provides more detail than just service is up
+2) If multiple different services monitored in same dashboard, then
+   simultaneous activity visible so 
+   a) if problem observed with one service caused by another service
+      relationship clear
+   b) multiple services impacted simultaneously clear allowing redirection
+      for root cause elsewhere
+3) graphing over time shows usage trends such as
+   a) common user behavior en masse
+   b) growth over time for capacity planning estimates
+
+Cool Features
+1) assign multiple tags for multiple groupings for analysis
+2) reliance on variables 
+3) reliance on 
+4) has API and client library in variety of languages for coding 
+5) support@datadoghq.com

@@ -1,0 +1,8 @@
+init_config:
+
+instances:
+    - url: <%= fqdn %>  # url used to connect to the memcached instance
+      port: 11211
+      tags:
+        - memcached
+
