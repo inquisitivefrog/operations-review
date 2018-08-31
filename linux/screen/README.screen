@@ -1,0 +1,27 @@
+
+Basics
+
+Installation
+# yum install screen
+
+Usage
+$ screen -L
+ctl-A?
+ctl-Ad
+$ screen -ls
+$ screen -r <pid>
+
+Popular Commands
+1) Enter Help: ctl-A? 
+2) Exit Help: <spacebar>
+3) Enter Screen: screen
+4) Detach Screen: ctl-Ad
+5) Kill Screen: ctl-AK
+6) Re-attach Screen: screen -r
+7) List active detached screens: screen -ls
+8) Enable Screen Logging: ctl-AH, or screen -L
+
+Also available but I've not yet used
+1) lock screen
+2) set password
+
