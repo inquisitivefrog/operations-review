@@ -1,0 +1,17 @@
+
+Active Services
+$ cat /etc/init.d/README
+$ systemctl
+$ systemctl list-unit-files
+
+Tuning Kernel
+$ sudo sysctl -a
+$ sudo vi /etc/sysctl.d/99-sysctl.conf
+$ sudo sysctl -p
+
+Shared Modules
+$ depmod -n
+$ insmod --autoclean <module name>
+$ lsmod 
+$ modinfo <module name>
+$ rmmod 

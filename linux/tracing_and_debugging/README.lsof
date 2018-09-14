@@ -1,0 +1,16 @@
+
+Purpose: lsof displays files currently opened by active processes which is
+         useful for debugging the owner of a large file particularly if
+         it consumes lots of RAM or disk but is marked for deletion and not
+         freed until a zombie parent is killed
+
+Example:
+$ sudo lsof | wc -l
+41430
+$ ps -ef | grep sshd
+root    1070     1  0 12:46 ?    00:00:00 /usr/sbin/sshd -D
+$ sudo lsof -p 1070 | wc -l
+58
+$ sudo lsof -p 1070 | grep socket
+sshd   1070 root   1u  unix 0xffff8ddf7c606c00   0t0  20825 socket
+sshd   1070 root   2u  unix 0xffff8ddf7c606c00   0t0  20825 socket

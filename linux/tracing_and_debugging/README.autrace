@@ -1,0 +1,21 @@
+
+Linux Auditing is process tracing, then results filtering and reporting using
+1) auditctl -D
+2) autrace 0r program argslist
+3) ausearch -i -p 
+4) aureport
+
+autrace Examples
+$ autrace /usr/bin/df -h
+$ autrace -r /usr/bin/df -h
+
+ausearch Examples
+$ ps -ef | grep df
+2658
+$ ausearch -i -p 2658
+
+aureport Examples
+$ ps -ef | grep df
+2658
+$ ausearch -ts today | aureport -i -f
+$ ausearch -p 2658 --raw | aureport -i -f

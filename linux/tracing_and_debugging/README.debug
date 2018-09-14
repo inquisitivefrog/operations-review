@@ -1,0 +1,31 @@
+
+Most Linux programs are compiled in C or C++ so will dump core when crashing.
+As they are executed initially as user root, confirm core storage space
+limits and increase if necessary.
+
+Configure
+
+$ sudo /bin/bash
+# ulimit -c
+0
+# vi /etc/profile
+ulimit -c unlimited >/dev/null 2>&1
+# vi /etc/sysctl.conf
+kernel.core_uses_pid = 1
+kernel.core_pattern = /tmp/core-%e-%s-%u-%g-%p-%t
+fs.suid_dumpable = 2
+# echo "DAEMON_COREFILE_LIMIT='unlimited'" >> /etc/sysconfig/init
+# sysctl -p
+
+Debug
+
+$ ps -ef | grep <application>
+3321
+$ gdb -p 3321
+
+$ gdb /path/to/application /tmp/core
+gdb> bt
+gdb> print <expr>
+gdb> addr/X
+gdb> exit
+

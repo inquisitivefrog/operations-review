@@ -1,0 +1,48 @@
+
+Linux libraries: static or archived usually labeled with lib*.a
+                 dynamic shared object or linking usually labeled with lib*.so*
+
+When executable files are compiled, they either bundle in static libraries
+using make or link to shared libraries assuming they have been preloaded.  
+If not yet preloaded, then ld.so or ld-linux.so is called to preload desired
+shared libraries. Most programs link shared libraries rather than bundling
+them in nowadays.
+
+Occasionally, a program requires a shared library that does not exist so it
+must be identified by package then installed before program can execute.
+The easiest way to handle this is
+1) try to execute the program confirming that 1+ shared libraries are missing
+2) inspect program to identify all desired and missing shared libraries 
+3) reload shared library cache and inspect for missing library
+4) check related application installation directories for missing library
+   then add that library directory to cache
+5) Google Search missing library to identify related package and download
+   and install that package
+6) reload shared library cache and confirm library no longer missing
+7) execute program
+
+Example Command Suite
+$ <program> <arglist>
+$ ldd <program>
+$ sudo ldconfig
+$ sudo ldconfig -v | grep <missing_shared_library>
+$ sudo vi /etc/ld.so.conf.d/<program>.x86_64.conf
+/path/to/<app>/lib64
+$ sudo ldconfig # or sudo ldconfig -l /path/to/<app>/lib64
+$ sudo ldconfig --print-cache | grep <missing_shared_library>
+$ <program> <arglist>
+
+Configuration
+$ sudo vi /etc/ld.so.conf
+$ sudo ls -l /etc/ld.so.conf.d
+$ sudo vi /etc/ld.so.conf.d/<program>.x86_64.conf
+
+Cache
+$ ls -ld /lib64
+lrwxrwxrwx. 1 root root 9 Aug 22 11:33 /lib64 -> usr/lib64
+$ ls /usr/local/lib64
+$ sudo ldconfig --print-cache # or sudo ldconfig -p
+
+TCP Wrapper Support 
+$ ldd /usr/sbin/sshd | grep libwrap
+    libwrap.so.0 => /lib/64/libwrap.so.0 (0x00007f0f2d332000)

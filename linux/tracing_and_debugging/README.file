@@ -1,0 +1,23 @@
+
+file: identifies actual file type by comparing first few bytes of file to a map
+      of possible choices in case file owner failed to follow best practices
+      and provide a file extension that identifies file type in the file name
+
+Examples
+
+$ ls -l Linux_*
+-rw-r--r--@ 1 tim  staff  45323 Sep 14 08:44 Linux_Process_Trace_Tips.odt
+-rw-r--r--@ 1 tim  staff  39145 Sep 14 08:53 Linux_autrace_ausearch_help.odt
+$ file Linux_Process_Trace_tips.odt
+Linux_Process_Trace_Tips.odt: OpenDocument Text
+$ file -b Linux_Process_Trace_tips.odt
+OpenDocument Text
+
+$ file vagrant_2.1.1_x86_64.dmg 
+vagrant_2.1.1_x86_64.dmg: VAX COFF executable not stripped - version 18354
+$ file learning_puppet_vm-6.5.zip 
+learning_puppet_vm-6.5.zip: Zip archive data, at least v2.0 to extract
+$ file -b xi-5.5.2.tar.gz 
+gzip compressed data, last modified: Thu Jul 26 15:41:44 2018, from Unix
+
+
