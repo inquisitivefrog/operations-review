@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# create alias to proxy commands
+alias vault='docker exec -it vault-dev vault "$@"'
+export VAULT_ADDR=http://127.0.0.1:8200
+
+export VAULT_TOKEN=$(grep 'Initial Root Token:' keys.txt | awk '{print substr($NF, 1, length($NF)-1)}')
+vault auth -address=${VAULT_ADDR} ${VAULT_TOKEN}

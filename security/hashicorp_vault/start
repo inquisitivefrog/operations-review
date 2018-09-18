@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# launch Consul agent
+# in production, launch a cluster to avoid SPF
+docker run -d --name consul -p 8500:8500 consul:v0.6.4 agent -dev -client=0.0.0.0
+
+# launch Vault linked to Consul where data is stored encrypted
+# Vault 
+docker run -d --name vault-dev --link consul:consul -p 8200:8200 --volumes-from config cgswong/vault:0.5.3 server -config=/config/vault.hcl
+

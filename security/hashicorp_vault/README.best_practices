@@ -1,0 +1,41 @@
+
+Strategy:
+1) this reads like Mission Impossible or an ancient fable
+2) using Shamir's Secret Sharing, Vault splits a master key into 5 shards
+   known as keys and one root token defined when initializing or 
+   in the keys.txt.  
+3) a Vault is unsealed using keys sequentially one by one
+   NOTE: as this occurs, status is displayed
+4) shards need be stored separately, preferably on 2FA enabled
+   flashdrives by Yubico, Neo, Fido, etc
+5) Vault access is granted via authentication using the root token
+
+Basics
+1) Vault is yet another HashiCorp product like Consul Agent, Terraform
+2) Vault is a separate docker container
+3) Vault manages initialization, encryption and decryption of key/value
+   stores stored in Consul agent
+4) Vault is initialized with 5 keys and a key threshold of 3 by default.
+   Vault does not store the master key.  Without at least 3 keys, Vault
+   will remain permanently sealed.
+5) When Vault is re-sealed, restarted or stopped, 3 keys are required
+   to make changes.
+6) Vaults can be unsealed if 3 of 5 keys are used 
+   
+Terms: Vault commands
+1) seal: lock acfess to stored secrets
+2) unseal: unlock access to stored secrets
+3) init: generate access keys, token for Vault service
+4) write: store secrets in Vault service
+4) read: retrieve secrets from Vault service
+
+Execute Bash scripts in this order to understand
+
+$ ./create
+$ ./start
+$ ./initialize
+$ ./unseal
+$ ./auth
+$ ./data 
+$ ./http
+$ ./seal

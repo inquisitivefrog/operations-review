@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# use Consul Agent monitor to drill down and confirm that key was encrypted
+# when saved
+
+curl https://2886795291-8500-cykoria02.environments.katacoda.com/ui/#/dc1/kv/vault/logical/

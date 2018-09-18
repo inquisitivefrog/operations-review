@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# create alias to proxy commands
+alias vault='docker exec -it vault-dev vault "$@"'
+export VAULT_ADDR=http://127.0.0.1:8200
+
+# store data
+vault write -address=${VAULT_ADDR} secret/api-key vault=12345678
+
+# retrieve data 
+vault read -address=${VAULT_ADDR} secret/api-key
+
+# retrieve just data value for script injection
+vault read -address=${VAULT_ADDR} -field=vaule secret/api-key
