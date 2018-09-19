@@ -1,0 +1,12 @@
+
+Each virtual machine defined by 
+1) VMWare
+2) VirtualBox
+
+creates a configuration file which then references an OS to install and stores kernel and OS configuration on a virtual disk.
+
+Each configuration file defines:
+1) CPU cores allowed
+2) system memory allowed
+3) disk space allowed
+4) network interfaces allowed

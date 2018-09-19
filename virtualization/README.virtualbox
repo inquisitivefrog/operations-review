@@ -1,0 +1,57 @@
+
+Installation
+Select Image from https://www.virtualbox.org/wiki/Downloads
+
+Configuration as secondary host on MacOSX 16GB RAM laptop
+1) click New
+2) enter name: CentOS 7
+3) select type: Linux
+4) select version: Red Hat (64-bit)
+5) click Continue
+6) select at least 1024MB RAM, more if only secondary host
+7) click Continue
+8) select Create a virtual hard disk now
+9) click Create
+10) select VDI (VirtualBox Disk Image)
+11) click Continue
+12) select Dynamically allocated
+13) click Continue
+14) set size to at least 40GB
+15) click Create
+
+Load OS
+1) select CentOS 7 Configuration
+2) select ISO image to load CentOS 7 from
+   single-user Window pops up to allow CentOS configuration
+3) click Start
+4) double click screen to enter
+   NOTE: click Left Command + Shift to exit
+5) confirm English language
+6) click Continue
+7) set Timezone as Americas/Pacific
+8) click Done
+9) set Installation Destination (just confirm already specified)
+10) click Continue
+11) set Root password
+12) set User name/password
+13) click Continue
+    wait 5 minutes
+14) click Reboot
+15) login as user or root
+16) confirm network
+    $ ifconfig virbr0
+    $ ip addr
+    $ netstat -i
+    $ netstat -ant | grep 22
+
+16) click Network tab for this Configuration
+    Note: Network adapter 1 is enabled as NAT by default
+17) select Adapter 1
+18) click Advanced
+19) click Port Forwarding
+20) Add a Rule
+    Protocol TCP
+    Host IP: blank
+    Host Port: 2222
+    Guest IP: IPv4 address from ifconfig virbr0
+    Guest Port: 22

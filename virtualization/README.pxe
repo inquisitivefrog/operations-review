@@ -1,0 +1,6 @@
+if a PXE server is enabled, then every baremetal node can be installed from 
+scratch by configuring the firmware to boot over the network instead of local
+floppy, CD or disk.
+
+the PXE server will note the request MAC address, and reply with the kernel and OS configuration allowed to install.
+

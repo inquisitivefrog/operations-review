@@ -1,0 +1,7 @@
+
+Virtual Nodes start when spun up so syncing the clock immediately afterwards
+is important but if preserving environment later, clock will be stopped 
+meaning a resume will have a clock off by whatever delta the VM was offline
+so again, resyncing the clock immediately after startup is crucial.
+
+Use ntp preferably from an external network source that is not virtualized.
