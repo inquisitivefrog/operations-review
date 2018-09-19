@@ -1,0 +1,35 @@
+
+TCP: Transmission Control Protocol
+
+Characteristics
+1) connection-oriented
+   so 3-way handshake, then data stream, then tear down
+2) data sent from src_ip:port to dst_ip:port
+3) same order delivery
+4) flow control if server slow or network bandwidth congested
+5) error checking and correction due to packet sequence number 
+   which requires reply with same number
+6) if packet received does not checksum, is received out of order or
+   is a duplicate, it is dropped by the server
+7) if client does not receive reply within time window, it assumes error
+   and resends
+
+Details
+1) port range 0:65535
+2) max package size: 64K
+
+Example Applications
+1) SSH
+2) SMTP, POP, IMAP
+3) HTTP, TLS/SSL
+
+Three-Way Handshake
+1) client sends SYN to initiate connection
+2) server replies with SYN, ACK to initiate in opposite direction and
+   acknowledge agreement to setup connection
+3) client sends ACK to acknowledge the reverse connection
+
+Terms
+1) SYN: synchronize or initiate connection
+2) ACK: acknowledge or agree with request
+3) Sequence number: 32bit

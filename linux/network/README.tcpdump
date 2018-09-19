@@ -1,0 +1,27 @@
+
+TCPdump: Network Packet Analyzer Tool
+
+Installation
+$ sudo yum install -y tcpdump
+
+# Select an interface to listen on and do so
+$ sudo tcpdump -D
+$ sudo tcpdump -i enp0s3 -vv
+
+# collect 100 packets
+$ sudo tcpdump -i enp0s3 -c 100 
+
+# capture data collected then read it back
+$ sudo tcpdump -w enp0s3.pcap -i enp0s3 -c 100
+$ sudo tcpdump -r enp0s3.pcap 
+
+# capture by IP address or Port
+$ sudo tcpdump -i enp0s3 src <IPv4>
+$ sudo tcpdump -i enp0s3 dst <IPv4>
+$ sudo tcpdump -i enp0s3 port 80
+
+Example Output
+#<timestamp> <protocol> <state> <src:port> <dst:port> <flags> <checksum> <sequence number> <response>, <length>
+
+14:09:21.653617 IP (tos 0x0, ttl 64, id 51528, offset 0, flags [DF], proto TCP (6), length(40) centos7.39514 > lax17s03-in-f4.le100.net.http: Flags [.], cksum 0xaf99 (correct), seq 80, ack 12778, win 55302, length 0
+

@@ -1,0 +1,22 @@
+
+nmap: Network Security Scanner
+
+Installation
+$ sudo yum install -y nmap
+
+# Host Scan
+$ sudo nmap -v <fqdn>
+$ sudo nmap -v <IPv4>
+$ sudo nmap -v <IPv4>/<netmask>
+
+# Ping Only Scan
+$ sudo nmap -sP <IPv4>/<netmask>
+
+# Host Detection Scan
+$ sudo nmap -v -A <IPv4>
+$ sudo nmap -O --osscan-guess <IPv4>
+
+# Port Scan
+$ sudo nmap -v -p 80-100 <IPv4>
+
+

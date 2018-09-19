@@ -1,0 +1,32 @@
+
+UDP: User Datagram Protocol
+
+Characteristics
+1) connectless so send and pray
+   ie. no handshake
+2) unreliable as no way to confirm receipt
+3) packets received may be out of order ot duplicates
+4) maximum datagram size 4K
+5) data sent from src_ip:port to dst_ip:port
+6) packets are optionally checksummed before sent
+7) punts error checking and correction to higher layer
+8) able to broadcast or multicast
+9) no congestion control when bandwidth saturated
+
+Example Applications
+1) DNS
+2) RIP
+3) DHCP
+4) SNMP
+5) NTP
+6) Real-time streaming Audio
+7) Real-time streaming Video
+
+Details
+1) port range 0:65535
+2) max package size: 64K
+
+Special Cases
+1) MTU size is typically 1024 bytes per Ethernet NIC but can be reduced
+   for noisy lines so UDP package will need to be similarly truncated
+   before sending and initial message will  bounce with EMSGSIZE

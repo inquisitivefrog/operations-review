@@ -1,0 +1,73 @@
+
+RAID: Redundant array of inexpensive disks
+      ie. a logical volume consisting of a grouping of storage available
+          on a collection of physical disks
+
+Levels
+0: striping, at least 2 disks, preferably of equal manufacturer and model
+   if 1 disk fails, all data is lost
+1: mirroring, always pairs and minimum of 2 disks
+   if 1 disk fails, mirror is split but data preserved on one half
+   so actually slight performance gain until replacement disk added
+   then major performance loss until mirror successfully copied
+5: striping but parity distributed over all so no hotspot, at least 3 disks
+   if 1 disk fails, data preserved but must be calculated on the fly
+   so slight performance loss which becomes major when replacement disk
+   added as data must be calculated before saved
+6: striping but parity distributed over two disks so data still preserved
+   if 2 disks lost
+10: common for DataStore, mirrored striped solution, minimum of 4 disks
+
+RHEL/CentOS
+
+Installation
+$ sudo yum install -y mdadm
+
+Partition Disks
+$ sudo fdisk -l | grep sd
+$ sudo mdadm --examine /dev/sda
+$ sudo mdadm --examine /dev/sdb
+$ sudo mdadm --examine /dev/sdc
+$ fdisk /dev/sda
+n: new
+P: Primary partition
+1: first partition
+<NL><NL>: default full disk
+t: change type
+fd: RAID
+p: print created partition
+w: write changes
+NOTE: repeat for sdb, sdc
+
+Build RAID Array
+$ sudo mdadm --examine /dev/sda
+$ sudo mdadm --examine /dev/sdb
+$ sudo mdadm --examine /dev/sdc
+$ sudo mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sda1 /dev/sdb1 /dev/sdc1
+$ cat /proc/mdstat
+$ watch -n 1 cat /proc/mdstat
+
+$ sudo mdadm --examine /dev/sd[a-c]1
+$ sudo mdadm --detail /dev/md0
+
+Create Filesystem
+$ sudo mkfs.ext4 /dev/md0
+$ sudo mkdir /mnt/raid5
+$ sudo mount /dev/md0 /mnt/raid5
+$ sudo ls -l /mnt/raid5
+$ sudo vim /etc/fstab
+/dev/md0   /mnt/raid5   ext4  defaults 0 0
+$ sudo mount -av
+
+Preserve State
+$ sudo mdadm --detail --scan --verbose >> /etc/mdadm.conf
+$ sudo echo "MAILADDR admin@localhost" >> /etc/mdadm.conf
+
+Monitor RAID Array
+$ sudo crontab -e
+@reboot /usr/sbin/mdadm --monitor --scan --oneshot --delay 1800
+
+NOTE: if other RAID level, use mdadm --create with different
+1) --level
+2) --raid-devices
+3) list of disks
