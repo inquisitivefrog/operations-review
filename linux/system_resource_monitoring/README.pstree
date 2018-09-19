@@ -1,0 +1,9 @@
+
+purpose: display parent, child relationships in process table
+
+$ pgrep dnsmasq
+1485
+1486
+$ pstree 1485
+dnsmasq -- dnsmasq
+

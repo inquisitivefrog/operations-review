@@ -1,0 +1,9 @@
+
+top
+if on multi-core node, then 1 cycles through processes per core
+
+Processes are listed in order of CPU usage which can be switched to system memory usage.
+
+Processes have sleep, idle or active status as well as names and IDs.
+
+Overall system CPU usage is estimated as is system memory consumed.

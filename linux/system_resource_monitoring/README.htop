@@ -1,0 +1,25 @@
+
+Purpose: Improved display over top due to 
+Usage
+$ htop
+NOTE: auto sorted by CPU usage, 
+
+Kill a Process
+$ htop
+select process with arrow keys
+kill with F9
+
+Change Proces Priority
+$ htop
+select process with arrow keys
+lower priority with F7, raise with F8
+
+Change Process Display Order
+$ htop
+press F6
+select column order
+
+Installation
+$ sudo yum install -y epel-release
+$ sudo yum install -y update
+$ sudo yum install -y htop

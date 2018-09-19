@@ -1,0 +1,7 @@
+
+purpose: scan process table by process name rather than PID
+
+$ pgrep <pattern>
+$ ps -ef | grep dnsmasq
+
+$ pgrep dnsmasq

@@ -1,0 +1,10 @@
+
+purpose: kill a group of processes by process name rather than PID
+
+$ ps -ef | grep celery_worker
+1451
+1452
+1453
+1454
+1455
+$ pskill celery_worker
