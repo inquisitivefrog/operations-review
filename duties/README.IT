@@ -1,0 +1,48 @@
+
+IT consists of 
+1) CIO: Chief Information Office
+2) Director of IT
+3) Systems Engineers
+4) System Administrators
+
+Notes
+1) hardware vendor deals negotiated assume a minimum annual volume
+   so require signature from Director and CIO as well as Purchasing
+   Agent or Purchasing Manager
+2) maintenance contracts require signature from Director and CIO
+3) software licenses require signature from Director and CIO
+4) remote service rents require signature from Director and CIO
+
+Systems Engineers Duties
+Note: focus is on serving employee needs
+1) define hardware needs
+2) order hardware as needed
+3) negotiate hardware maintenance contracts
+4) architect internal networks: LAN, WAN, Wifi, ISP
+5) architect internal data centers and access to branch offices
+6) register Internet domain
+7) rent ISP services
+8) rent co-location services
+9) rent cloud services
+
+System Administrator Duties
+Note: focus is on serving employee needs
+1) Image laptops to new employees
+2) Retrieve laptops from fired/laid off employees
+3) Build laptop images consisting of department specific applications
+   installed on top of department specific operating systems
+4) Know Operating System intimately being aware of how to configure features
+   and how to use them as well as when to upgrade or patch releases
+5) Know Applications somewhat being away of how to configure them and
+   when to upgrade or patch them but not necessarily how to use them
+   beyond a basic validation test
+6) Manager
+8) Backup server data
+9) Manage user mail
+10) Manage user chat
+11) Manage internal printers
+12) Manage internal network access: guest, LAN, wifi
+13) Manage user help desk
+    authentication issues, authorization issues, retrieve deleted data,
+    suggest tools as solutions to user problems
+14) possibly manage card key access

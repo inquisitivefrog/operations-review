@@ -1,0 +1,68 @@
+
+Operations also called DevOps consists of
+1) Director of Operations
+2) Platform Engineers
+3) Infrastructure Engineers
+3) Site Reliability Engineers
+
+Infrastructure Engineer Duties
+Note: focus is on serving external clients by defining a SaaS solution
+Note: as businesses migrate to cloud services, hardware rental may be
+      temporary rather than fixed offloading some duties from IE to PE
+      and forcing a need for retraining with cloud service tools
+1) Architect best delivery of SaaS from distributed Data Centers in
+   co-locations or clouds
+2) Identify power, A/C, 19" rack footprint needs for hardware
+3) Select hardware: routers, switches, load balancers, servers to place
+   in 19" racks and cabling between them
+4) Architect workflow pipelines with considerations for fault tolerance,
+   scaling and security
+4) Capacity Planning
+5) Failover Strategy including Disaster Recovery
+6) In large sites, N servers must be spun up on demand or with short notice
+   so configuration needs rely on automated steps defined by scripted
+   language tools such as Linux X_Start, Puppet or Chef
+7) In large sites, workflow pipelines are split into service tiers with
+   each requiring a separate configuration
+8) When renting hardware from a colo, a downed node may not be rapidly
+   replaced so service tier configurations may double up enabling multi use
+   with only desired services turned on depending on use
+
+Platform Engineer Duties
+Note: focus is on serving external clients by managing a SaaS solution
+Note: as businesses migrate to cloud services, hardware rental may be
+      temporary rather than fixed offloading some duties from IE to PE
+      and forcing a need for retraining with cloud service tools
+1) Manage workflow pipeline by following defined procedures to bring
+   services up and logging incident reports when they go down
+2) Redirecting all service logs to a centralized repository to enable search
+   by patterns such as ToD, IP address, service-name, error type
+3) Defining monitors and alerts for workflow pipeline services to track
+   usage patterns, create a historic log of daily activity, and catching
+   recent activity prior to an incident
+4) Troubleshooting workflow pipeline failures by filing incident reports,
+   rolling back deployments, redirecting traffic, scaling up equipment to
+   handle unexpected load, and scheduling maintenance for failing hardware or
+   environment
+5) Rotate responsibility for Troubleshooting workflow pipeline failures
+   by hiring in different timezones using a Follow-the-Sun strategy
+
+Site Reliability Engineers
+Note: focus is on helping Engineering develop features and patches
+Note: SRE is either an SE that didn't make the cut or a super SE depending
+      on whom you believe
+Experienced Developer comfortable with
+1) Coding in multiple languages
+2) Configuring and using source code repositories to preserve code
+3) Configuring and using Continuous Integration tools to automate testing
+Experienced Platform Engineer comfortable with
+1) Building and maintaining QA test and Engineering development environments 
+   for individual or shared use depending on expense of resource
+2) Building and maintaining QA test and Engineering development environments
+   via IAAS configuration and orchestration tools
+3) Building and maintaining a Staging environment for integrated, performance,
+   fault tolerance and scaled testing of features pre-deployment
+4) Defining monitors and alerts for new features and patches in order to 
+   measure resource consumption and confirm adherence to SLA metrics.
+5) Deploying new features or patches using Continuous Deployment tools
+   that allow rollback on failure
