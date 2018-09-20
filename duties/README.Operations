@@ -21,7 +21,7 @@ Note: as businesses migrate to cloud services, hardware rental may be
 5) Failover Strategy including Disaster Recovery
 6) In large sites, N servers must be spun up on demand or with short notice
    so configuration needs rely on automated steps defined by scripted
-   language tools such as Linux X_Start, Puppet or Chef
+   language tools such as Linux KickStart, Puppet or Chef
 7) In large sites, workflow pipelines are split into service tiers with
    each requiring a separate configuration
 8) When renting hardware from a colo, a downed node may not be rapidly
