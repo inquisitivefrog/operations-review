@@ -1,0 +1,30 @@
+
+A boot loader exists 
+
+Concepts
+1) any disk formatted as a root disk has 1+ boot sectors containing both
+   Linux kernel and initramfs
+2) if the motherboard EEPROM is configured to boot from disk, then this
+   boot sector will be read, the kernel loaded and initramfs mounted
+3) initramfs contains a mini file system with kernel modules that allow
+   kernel access to other disks
+
+Grub Files
+$ sudo cat /etc/default/grup
+$ sudo ls -l /etc/grub.d/
+$ sudo cat /boot/grub2/grub.cfg
+$ sudo ls /boot/grub2/i386-pc
+
+# update grub config
+$ sudo vim /etc/default/grub
+$ sudo grub2-mkconfig > /boot/grub2/grub.cfg
+
+# reboot to test Grub changes 
+$ sudo systemctl isolate reboot.target
+
+Obvious Boot Options to Change
+1) enable crashkernel for debugging a bad kernel
+2) avoid hiding log and error messages when booting kernel
+   remove rhgb, quiet
+3) disk model or filesystem type assumed but not supported
+   by default so tweak options to provide support

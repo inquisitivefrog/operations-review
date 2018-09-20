@@ -1,0 +1,83 @@
+systemd: System and Service Manager responsible for starting units
+
+Unit Types
+$ sudo systemctl -t help
+Available unit types:
+service
+socket
+target
+device
+mount
+automount
+snapshot
+timer
+swap
+path
+slice
+scope
+
+Unit Management Commands
+$ sudo yum install -y <unit>
+$ sudo systemctl enable <unit>
+$ sudo systemctl start <unit>
+$ sudo systemctl status <unit>
+$ sudo systemctl stop <unit>
+$ sudo systemctl --failed --type=service
+
+Unit Configuration Commands
+$ sudo systemctl -t help
+$ sudo systemctl --list-services
+$ sudo systemctl --type=services --all
+$ sudo systemctl --type=target --all
+# get unit configuration options
+$ sudo systemctl show
+$ sudo systemctl show <unit>
+
+Unit Statuses
+1) Loaded: configuration processed, unit active
+2) Active(running): has active processes
+3) Active(exited): ran and finished
+4) Active(waiting): active but blocked on event
+5) Inactive: not running
+6) Enabled: will start at boot
+7) Disabled: will not start at boot
+8) Static: may be started automatically by another unit
+
+Unit Relationships
+$ sudo systemctl list-dependencies <unit>
+$ sudo systemctl list-dependencies --reverse <unit> 
+
+Units in Conflict
+$ sudo systemctl disable <unit>
+$ sudo systemctl mask <unit>
+
+Files
+$ sudo ls /usr/lib/systemd/system
+$ sudo ls /etc/systemd/system
+$ sudo ls /run/systemd/system
+
+Unit File Configuration
+1) every unit file has 
+   [Unit]
+   [Service]
+   [Install]
+2) [Unit] may have After or Before to assist with startup order
+3) [Unit] may have Conflicts to prevent simultaneous activity
+4) [Service] often has ExecStart, ExecStop to assist with management syntax
+5) [Install] may have WantedBy to define where to execute from
+
+Target Unit Configuration
+1) Target unit is a group of units
+2) defines unit starting order
+3) has Wants which define units 
+
+Targets as Kernel Run Levels
+0) poweroff.target
+1) rescue.target
+3) multi-user.target
+5) graphical.target
+6) reboot.target
+
+# change Kernel state and number of units active
+$ sudo systemctl isolate rescue.target
+

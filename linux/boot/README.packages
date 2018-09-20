@@ -1,0 +1,12 @@
+
+RHEL relies on yum to install OS features as packages.  Some packages rely
+on others as dependencies and must load them first.  Some packages are very
+specific about the version of a package and refuse to load anything else so
+accessing additional repositories or changing the version desired may be 
+required.
+
+Package Installation
+$ sudo yum install -y <package>
+$ sudo yum uninstall -y <package>
+$ sudo yum group install <group name>
+
