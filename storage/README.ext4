@@ -1,0 +1,76 @@
+
+ext4: default file system in RHEL5 and RHEL6
+
+Features
+64bit: file system can be bigger than 2^32 blocks
+bigalloc: speed block allocation using bigger than default 16 blocks
+dir_index: ext3 feature faster name lookups per directory by b-tree storage
+dir_nlink: allow more than 65000 subdirs per dir
+extent: store inodes by extent tree rather than indirect block scheme
+extra_isize: reserve storage per inode for extended metadata
+ext_attr: ext2 feature allow use of extended attributes 
+filetype: ext2 feature enables storage file type in dir entries
+flex_bg: allows random storage of per block group metadata 
+has_journal: ext3 feature allow file system journaling to eliminate fsck
+huge_file: allow files greater than 2 TiB
+journal_dev: if journaling file system on 2nd disk
+large_file: needed if any file bigger than 2GB
+meta_bg: allow resize file system online 
+mmp: in shared storage environments, prevents multiple mounting
+resize_inode: extra space reserved for block group descriptor table
+sparse_super: ex2 feature defines superblock backup locations
+uninit_bg: checksums on block group descriptors
+
+MBR: Master Boot Record has 4 partitions but one may be an extended
+     partition where 12 logical partitions can be created
+     
+BIOS: Basic Input Output System
+
+Note: must use fdisk not gdisk
+
+Preserve environment
+$ sudo dd if=/dev/sda of=/root/diskfile bs=1M count=1
+$ sudo cp /etc/fstab /root/fstab 
+
+Add an EXT4 Disk Partition
+$ sudo fdisk /dev/sda
+n: new partition
+<NL>: default
+t: type
+83: Linux ext4
+w: write
+p: display partition table
+q: quit
+
+$ sudo fdisk /dev/sda
+n: new partition
+<NL>: default
+t: type
+82: Linux swap
+w: write
+p: display partition table
+q: quit
+
+$ sudo fdisk -l /dev/sda
+$ sudo cat /proc/partitions
+$ sudo partprobe /dev/sda
+$ sudo mkfs -t ext4 /dev/sda3
+$ sudo tune2fs -l /dev/sda3
+$ sudo mkdir /mnt/home
+$ sudo mount /dev/sda3 /mnt/home
+$ sudo umount /mnt/home
+$ sudo blkid /dev/sda3
+$ sudo vi /etc/fstab
+UUID="<guid>" /mnt/home ext4 defaults 1 2
+
+Add a Swap Partition
+$ sudo mkswap /dev/sda4
+$ sudo swapon /dev/sda4
+$ sudo free -m
+$ sudo vi /etc/fstab
+/dev/sda4 /mnt/swapfile swap defaults 0 0
+
+Mount Everybody
+$ sudo mount -a
+$ sudo mount
+

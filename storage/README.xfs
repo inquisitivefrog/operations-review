@@ -1,0 +1,69 @@
+
+xfs: default file system in RHEL7
+
+Features
+allocsize: override preallocation size based on current usage patterns
+attr2: enable/disable inline extended attribute storage
+barrier: enable/disable block layer writer barriers
+discard: enable/disable SSD, VM image or provisioned LUN driven commands
+         to reclaim space freed
+grpid|bsdgroups|nogrpid|sysvgroups: 
+
+GPT: GUID Partition Table
+     may create 128 partitions
+     disks may be as large as 8 ZiB, 2 TiB limit gone
+     partition types of primary, extended, logical gone
+     partitions identified by 128bit GUID
+     partition table copied to last disk sector for safety
+
+UEFI: Unified Extensible Firmware Interface
+     
+Note: must use gdisk not fdisk
+
+Preserve environment
+$ sudo dd if=/dev/sda of=/root/diskfile bs=1M count=1
+$ sudo cp /etc/fstab /root/fstab 
+
+Add an XFS Disk Partition
+$ sudo gdisk /dev/sda
+n: new partition
+<NL>: default
+t: type
+8300: Linux xfs
+w: write
+p: display partition table
+q: quit
+
+$ sudo gdisk /dev/sda
+n: new partition
+<NL>: default
+t: type
+8200: Linux swap
+w: write
+p: display partition table
+q: quit
+
+$ sudo gdisk -l /dev/sda
+$ sudo cat /proc/partitions
+$ sudo partprobe /dev/sda
+$ sudo mkfs -t xfs /dev/sda3
+$ sudo xfs_admin /dev/sda3
+NOTE: xfs_db, xfs_growfs, xfs_repair also exist
+$ sudo mkdir /mnt/home
+$ sudo mount /dev/sda3 /mnt/home
+$ sudo umount /mnt/home
+$ sudo blkid /dev/sda3
+$ sudo vi /etc/fstab
+UUID="<guid>" /mnt/home xfs defaults 1 2
+
+Add a Swap Partition
+$ sudo mkswap /dev/sda4
+$ sudo swapon /dev/sda4
+$ sudo free -m
+$ sudo vi /etc/fstab
+/dev/sda4 /mnt/swapfile swap defaults 0 0
+
+Mount Everybody
+$ sudo mount -a
+$ sudo mount
+
