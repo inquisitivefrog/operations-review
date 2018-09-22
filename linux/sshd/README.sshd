@@ -1,0 +1,28 @@
+
+SSHD: Secure Shell Service is really the OpenSSH protocol
+
+Installation
+$ sudo yum list | grep ssh
+NOTE: already installed for free
+
+Port
+$ grep 22 /etc/services | less
+ssh  22/tcp # The Secure Shell (SSH) Protocol
+ssh  22/udp # The Secure Shell (SSH) Protocol
+
+RFC 4253
+The Secure Shell (SSH) Transport Layer Protocol
+
+Files
+$ sudo ls -l /etc/ssh/ssh_config
+$ sudo ls -l /etc/ssh/sshd_config
+
+Logs
+$ sudo ls -l /var/log/secure
+
+Management
+$ sudo systemctl start sshd
+$ sudo systemctl status sshd
+$ sudo systemctl stop sshd
+$ sudo systemctl restart sshd
+

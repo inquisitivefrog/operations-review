@@ -1,0 +1,35 @@
+
+Installed by Default for
+1) RHEL 7
+2) Ubuntu 14
+3) MacOSX (but disabled)
+
+ssh-key generation
+$ ssh-keygen
+NOTE: if you add a passphrase, you need to enter it every time
+NOTE: if you have more than one ssh-key, leave id.rsa for local
+      access and replace id with servername for all others
+      a) aws.rsa
+      b) git.rsa
+
+Client Config
+$ vi ~/.ssh/config
+Host localhost
+  IdentityFile ~/.ssh/id_rsa
+  IdentitiesOnly yes
+  Port 22
+Host github.com
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/git_rsa
+Host heroku.com
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/git_rsa
+
+MacOSX KeyChain
+$ ssh-add
+$ ssh-add -l
+
+Server Config
+

@@ -1,0 +1,33 @@
+
+sshd Best Practices
+Secure Shell Service is helpful but too friendly by default so batten hatches,
+there be stormy weather ahead!
+
+Hardening Strategy
+1) disable root login forcing use of sudo/su -
+2) disable password login forcing use of ssh keys
+3) hide standard port 22 forcing port scan to detect
+4) whitelist user access limited to Operations team
+
+Disable Root Access
+$ sudo vi /etc/ssh/sshd_config
+#PermitRootLogin
+$ sudo systemctl restart sshd
+
+Disable Password Login
+$ sudo vi /etc/ssh/sshd_config
+#PasswordAuthentication
+$ sudo systemctl restart sshd
+
+Hide Standard Port
+$ sudo vi /etc/ssh/sshd_config
+Port 2022
+$ semanage port -l
+$ semanage port -a -t ssh_port_t -p tcp 2022
+$ sudo systemctl restart sshd
+
+Whitelist Users
+$ sudo vi /etc/ssh/sshd_config
+AllowUsers tim john mike
+$ sudo systemctl restart sshd
+

@@ -1,0 +1,30 @@
+
+Preserve Old Keys
+$ ls -la ~/.ssh
+$ cd .ssh
+$ mv id_rsa.pub id_rsa.pub.old
+$ mv id_rsa id_rsa.old
+
+Generate a New Key
+$ ssh-keygen -t rsa -b 4096 -C "inquisitivefrog@gmail.com"
+Enter a file: site_rsa
+Enter passphrase: wearetheworld
+$ mv site_rsa ~/.ssh
+$ mv site_rsa.pub ~/.ssh
+$ cd ~/.ssh
+$ chmod 400 *
+$ chmod 600 config known_hosts
+
+Register with Agent
+$ eval "$(ssh-agent -s)"
+$ vi ~/.ssh/config
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/site_rsa
+$ ssh-add -K ~/.ssh/site_rsa
+$ ssh-add -l
+
+References
+https://help.github.com/articles/connecting-to-github-with-ssh/
+
