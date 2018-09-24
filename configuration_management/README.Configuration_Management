@@ -1,4 +1,19 @@
 
+Basics
+1) Assumes IaaS layer already architected so only need to roll out
+   higher level configuration such as
+   a) users, groups
+   b) firewall, selinux
+   c) Linux services
+   d) monitor service
+   e) CI/CD service
+   f) custom app service
+2) as these configurations are often tier specific or node specific, OK to
+   a) define in templates 
+   b) assign nodes to templates
+3) if using Master/Slave model, then would also need to install slave agent
+   service
+
 Strategic Questions
 1) Should implementation of configuration changes fail completely on error?
    YES
