@@ -1,0 +1,19 @@
+
+Strategic Questions
+1) Should implementation of configuration changes fail completely on error?
+   YES
+   a) easy to identify mistake
+   b) avoid wasting time causing other issues such as when services depend
+      on each other
+   NO
+   a) good to know at a glance how bad things truly are
+      even if including false positives
+   b) avoid fixing then time-consuming retrying step by step
+2) Should output always be noisy or only on failure?
+   YES
+   a) confirms what was done even though it passed
+   b) use pattern search to find state automatically
+   NO
+   a) we only care about failure and noisy doesn't help if service not
+      configured to start at all
+

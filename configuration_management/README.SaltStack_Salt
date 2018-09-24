@@ -1,0 +1,49 @@
+
+Basics
+1) developed in Python so DSL uses similar syntax
+2) common to configure deployment, then inspection confirmation
+3) online documentation unorganized and text difficult to comprehend
+   and always assumes master/minions mode so don't copy blindly
+   always many topics are covered in multiple overlapping documents
+   so read carefully
+4) executes states in order but can be overridden
+5) runs all states then reports summary status of success, failure
+6) good Jinja support in pillars but 
+   a) Jinja processed before state
+   b) cannot assign Jinja for as yet undefined states
+   c) can group multiple states in one loop
+7) config inputs and output always YAML
+
+Files
+1) top.sls
+2) file.managed
+3) file.recurse
+
+Terms
+1) state: YAML DSL define configuration
+2) pillar: user defined variables
+3) grain: system-wide variables
+4) OrderedDict: dict generated for each state, pillar, grain run
+
+State
+1) watch defines trigger events
+2) listen executes post run
+
+Best Practices
+1) no masters if Developer self deploy mode so
+   $ salt-call --local
+2) separating top.sls by responsibilities
+   States
+   a) top.sls
+   b) base.sls
+   c) servie.sls
+   Pillars
+   a) top.sls
+   b) users.sls
+   c) common.sls
+3) Debug easy
+   $ salt-call grains.items
+   $ salt-call pillar.items
+4) Executes faster by apparently hashing pillars and states to easily detect
+   changes then skip over them so faster than Ansible
+5) false positive reporting for Supervisord and apache modules

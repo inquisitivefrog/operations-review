@@ -1,0 +1,9 @@
+
+Basics
+1) developed in Ruby so DSL uses similar syntax
+2) executes out of order
+
+Best Practices
+1) executes out of order and fails on error so check before save
+   NOTE: occasionally problematic runs 
+

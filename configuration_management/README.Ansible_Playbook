@@ -1,0 +1,44 @@
+
+Basics per 2014 Notes
+1) developed in Python so DSL uses similar syntax
+2) common to configure deployment, then inspection confirmation
+3) online Documentation helpful
+4) Jinja integration in playbook files is clear: {{ obj.attr }}
+5) DSL in playbook files not clear
+   a) can only loop on individual tasks
+   b) cannot use Jinja variables for looping or conditionals like in Django
+   c) tasks can registere data from shell commands as variables used in 
+      future tasks 
+6) shell module split will strip args arbitrarily without warning
+   boundaries between shell module and command module are unclear
+7) configuration file inputs and outputs are not uniform: .ini, .yml,
+    boolean yes/no, boolean True/False, .json, .spew
+8) debugging requires effort
+   facts: ansible -m setup hostname
+   variables: vi playbook.yml; debug task, run and review output
+
+Terms
+1) inventory file: any file in /etc/ansible
+
+Best Practices
+1) always executes in order and fails on error so check before save
+   NOTE: occasionally problematic runs but more reliable than Puppet
+2) Avoid Masters if allowing develop self-deploy
+   $ cat /etc/ansible/hosts
+   [targets]
+   localhost ansible_connection=local
+   $ ansible-playbook -c local
+2) separating playbook.yml by responsibilities:
+   Playbook
+   a) playbook.yml
+   b) base.yml
+   c) base-handlers.yml
+   d) service.yml
+   e) service-handlers.yml
+   Variables
+   a) user.yml
+   b) common.yml
+3) executes slower than SaltStack
+4) false positive reporting for Supervisord and apache modules
+
+
