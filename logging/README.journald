@@ -1,0 +1,30 @@
+
+RHEL 7.5 journald is new
+1) doesn't persist between reboots until enabled to also save to /var/log/
+2) stops logging 
+   a) if file exceedsd 10% of filesystem
+   b) if filesystem exceeds 85% full
+
+Usage
+$ sudo journalctl --since yesterday -p err
+$ sudo journalctl --no-pager
+$ sudo journalctl -f
+$ sudo journalctl
+G
+/
+?
+\t\t
+
+Files
+$ sudo cat /run/log/journal
+  NOTE: wiped on each node reboot
+$ sudo view /etc/systemd.journald.conf
+
+Configure
+1) can be configured to save, recommended location /var/log/journal
+   $ sudo mkdir /var/log/journal
+   $ sudo chown root=systemd=journal /var/log/journal
+   $ sudo chmod 2755 /var/log/journal
+   $ sudo vi /etc/systemd.journald.conf
+   ForwardtoSysLog=yes
+   $ sudo reboot

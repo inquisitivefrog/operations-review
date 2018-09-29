@@ -1,0 +1,7 @@
+
+logrotate: rename, compress oldest logs allowing new files to exist eventually
+           usually managed by cron task
+
+Files
+$ sudo view /etc/logrotate.conf
+$ sudo ls -l /etc/logrotate.d/

@@ -1,0 +1,37 @@
+
+rsyslogd: replacement for syslogd offers more features
+  
+Manage
+
+Files
+$ sudo view /etc/rsyslog.conf
+$ sudo ls -l /etc/rsyslog.d
+
+Facilities
+1) daemon
+2) kern
+3) lpr
+4) mail
+5) mark
+6) news
+7) security
+8) syslog
+9) user
+10) uucp
+11) local0-7
+
+Priorities
+1) debug
+2) info
+3) notice
+4) warn
+5) err
+6) crit
+7) alert
+8) emerg
+
+Sample
+*.info;mail.none;auth.priv.none;cron.none /var/log/messages
+authpriv.*                                /var/log/secure
+mail.*                                   -/var/log/maillog
+cron.*                                    /var/log/cron

@@ -15,7 +15,7 @@ by resources and label selector
 Deploy Commands:
   rollout        Manage the rollout of a resource
   scale          Set a new size for a Deployment, ReplicaSet, Replication
-Controller, or Job
+Controller, or Job:
   autoscale      Auto-scale a Deployment, ReplicaSet, or ReplicationController
 
 Cluster Management Commands:

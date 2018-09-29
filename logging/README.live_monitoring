@@ -1,0 +1,6 @@
+
+Common Logs to Monitor
+$ sudo tail -f /var/log/messages
+$ sudo tail -f /var/log/secure
+$ sudo tail -f /var/log/maillog
+$ sudo tail -f /var/log/httpd/httpd-error.log

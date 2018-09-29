@@ -1,0 +1,4 @@
+
+When service logs fails, most recent is available from systemd which is faster than filtering on /var/log/messages
+
+$ sudo systemctl status <unit>
