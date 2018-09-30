@@ -1,0 +1,23 @@
+
+EC2 instances running any variant of Linux have unique default usernames
+
+Amazon Linux AMI: ec2-user
+CentOS AMI: centos
+Debian AMI: admin, root
+Fedora AMI: ec2-user, fedora
+RHEL AMI: ec2-user, root
+SUSE AMI: ec2-user, root
+Ubuntu AMI: ubuntu
+
+Access after Launch
+1) select newly activated EC2 instance
+2) view attributes in bottom 3rd of screen
+3) find IPv4 Public IP or Public hostname
+
+Assuming Key Pair was created, then matching PEM file was automatically downloaded
+$ mv ~/Downloads/demo.pem ~/.ssh
+$ chmod 0400 ~/.ssh/demo.pem
+$ cd ~/.ssh
+$ ssh -i "demo.pem" ubuntu@54.209.209.120
+ubuntu@ip-172-31-41-195:~$ 
+

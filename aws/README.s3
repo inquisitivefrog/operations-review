@@ -1,0 +1,6 @@
+
+Helpful Commands
+$ aws s3 ls
+$ aws s3 rm s3://mybucket --recursive
+
+
