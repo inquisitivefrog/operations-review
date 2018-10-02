@@ -1,0 +1,52 @@
+
+postfix: secure mail server replacement for sendmail
+
+Installation
+$ sudo yum install -y postfix
+$ sudo systemctl status postfix
+
+Queue Management
+$ sudo postqueue -p
+$ sudo postqueue -f
+Note: this flushes
+
+Files
+$ sudo view /etc/postfix/master.cf
+$ sudo view /etc/postfix/main.cf
+$ sudo view /var/log/maillog
+
+Configuration
+$ sudo postconf -n
+Note: shows changes from defaults
+$ sudo postconf myorigin
+$ sudo postconf mydomain
+$ sudo postconf mynetworks
+$ sudo postconf -e "<key>=<value>"
+$ sudo postconf | grep <key>
+$ sudo postfix check
+$ sudo systemctl reload postfix
+$ sudo firewall-cmd --permanent --add-service smtp
+$ sudo firewall-cmd --reload
+
+Terms
+1) SMTP: simple mail transfer protocol
+2) MTA: message transfer agent
+3) MUA: mail user agent
+4) MDA: message delivery agent
+5) MX record: DNS Mail Exchange record identifying mail servers at site
+6) null client: has configuration to send but cannot receive mail
+7) relay host: mail forwarded to this host which then forwards to actual MTA
+
+Client Mail Applications
+1) Mutt
+2) Evolution
+3) Mail
+
+Usage
+Client Sends
+$ mail -s test1 <user>@<server> <.
+Note: no body
+
+Server Receives
+$ mail
+
