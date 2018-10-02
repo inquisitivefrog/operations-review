@@ -1,0 +1,29 @@
+
+pidstat: process or application performance monitor
+
+Installation
+$ sudo yum install -y sysstat
+$ sudo systemctl status sysstat
+
+Usage
+$ sudo pidstat -l -p <pid>
+Note: this displays cmd and all CLI arguments
+$ sudo pidstat -w -p <pid> <interrations> <how_often>
+Note: this reflects context switches
+$ sudo pidstat -u -p <pid> <interrations> <how_often>
+Note: this reflects CPU usage
+$ sudo pidstat -t -p <pid> <interrations> <how_often>
+Note: this reflects CPU usage by thread
+$ sudo pidstat -r -p <pid> <interrations> <how_often>
+Note: this reflects Memory usage
+$ sudo pidstat -d -p <pid> <interrations> <how_often>
+Note: this reflects I/O usage
+
+Terms
+1) voluntary context switch: app threads all idle so OK to be switched out
+   by OS scheduler
+2) involuntary context switch: app has at least one busy thread but overall
+   exceeded OS scheduler dictated time slice so must be forced to pause
+3) context switch: OS scheduler temporarily pauses processes so that other 
+                   processes may have a turn to execute and eventually allows
+                   swapped processes to continue

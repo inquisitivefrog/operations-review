@@ -1,0 +1,85 @@
+
+Popular tools from RPM package: sysstat
+
+These tools provide the basis for performance monitoring of system resources
+1) CPU
+2) RAM
+3) Disk I/O
+4) Network Bandwidth
+
+However, Red Hat Enterprise Linux 7 Performance Tuning Guide can offer unique
+insights due to the fact that Linux is designed different for each flavor so
+generic strategies offer limited assistance.
+
+Installation
+$ sudo yum install -y sysstat
+
+Management 
+$ sudo systemctl status sysstat
+
+CPU Metrics
+1) modern hardware has N CPUs with M Cores per CPU
+2) top shows CPU activity on each Core
+3) mpstat shows CPU activity on each CPU
+NOTE: a weakness of many languages is that despite an ability to launch
+      threads auto assigned to different Cores of the same CPU, the launching
+      does not cross CPUs and may create an unwanted backlog if more threads
+      than Cores are launched
+$ top
+  1
+$ mpstat
+
+Memory Metrics
+1) modern hardware manages memory even better than before 
+2) swap is still required and recommended as equal to or larger than actual
+   RAM installed
+3) applications and associated data are split into pages that are swapped
+   out when no longer recently used, LRU, then swapped back in when needed
+   if space is not yet overwritten
+4) as a consequence, memory usage patterns often settle down over time but
+   use more RAM that expected
+5) virtual memory is not actually used, just assigned as separate mappings
+   per process so can be ignored
+6) resident memory is actual minimum usage requirements that can increase 
+   as application memory and file memory are cached
+$ top
+  m
+$ sudo free -m
+$ sudo head -16 /proc/meminfo
+$ sudo swapon -s
+
+I/O Metrics
+1) modern hardware is still SCSI disks but IDE controllers have been
+   replaced with SATA controllers and SSDs now exist
+2) per seconds rates are only useful after ballparking maximums via heavy
+   load testing 
+3) disks belonging to filesystems that are reading heavily should have
+   data replicated so that users can read the nearest copy rather than all
+   pounding on one location
+4) disks belonging to filesystems that are writing heavily should have
+   the filesystem striped over multiple controllers and multiple disks to
+   allow for faster writes and controllers chosen should allow a battery 
+   backed cache as protection from power failures while writing
+$ sudo iostat -d /dev/sda2
+  NOTE: transactions per second, kilobytes read/sec, kilobytes written/sec
+$ sudo iostat -c 
+  NOTE: CPU usage
+
+Swap Metrics
+1) In theory, purchasing more RAM than actually needed can prevent using
+   swap but in practice this is really load pattern dependent
+2) SSD were initially sensitive to erase iterations so no recommended for
+   temporary work such as swap, /tmp but newer hardware is no longer so
+   sensitive 
+3) swap is auto configured to share a partition on the root drive but
+   better performance occurs if separate from OS partitions: /, /usr
+   and data partitions: /var, /opt, /home so a separate disk is worth
+   consideration
+$ free -m 
+$ swapon -s
+$ cat /proc/meminfo | grep Swap
+$ sudo vmstat -s
+  NOTE: CPU context switches, interrupts, total memory, free memory
+
+Network Metrics
+1) 

@@ -1,0 +1,24 @@
+
+sar: system activity reporter from Irix days
+
+Installation
+$ sudo yum install -y sysstat
+$ sudo systemctl status sysstat
+
+Configuration
+$ grep HISTORY /etc/sysconfig/sysstat
+Note: if present, shifts total data preserved from 28 days
+
+$ sudo cat /etc/cron.d/sysstat
+*/10 * * * * root /usr/lib64/sa/sa1 1 1
+0 * * *  * root /usr/lib64/sa/sa1 600 6 &
+53 23 * * * root /usr/lib64/sa/sa2 -A
+
+Usage
+$ sudo sar -P 0
+Note: node CPU usage statistics
+$ sudo sar -n DEV
+Note: node network statistics
+$ sudo sar -h
+Note: disk I/O statistics
+$ sudo sar 1 10

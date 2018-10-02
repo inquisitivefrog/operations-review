@@ -1,0 +1,15 @@
+
+Ethernet performance Tools
+
+Active Connectivity
+Ping
+$ netstat -i
+$ ip neigh
+$ arping -I <nic> -c <count> <addr>
+$ ping <addr>
+
+Errors
+$ ip -s link
+$ netstat -i
+$ ethtool -S <nic>
+

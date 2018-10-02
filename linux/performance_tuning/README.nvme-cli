@@ -1,0 +1,8 @@
+
+SSD disks need their own tool for analysing disk performance
+
+Installation
+$ sudo yum install -y nvme-cli
+
+Usage
+$ sudo nvme smart-log /dev/nvme0

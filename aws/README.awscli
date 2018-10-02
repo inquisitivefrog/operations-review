@@ -10,6 +10,11 @@ $ pip install awscli --upgrade --user
 NOTE: although Python pip is used, tool is stored in /usr/local/aws with
       link /usr/local/bin/aws
 
+Security
+NOTE: aws, aka awscli, auto reads $HOME/.aws/ config and credentials
+      so expected resources will be visible as long as credentials are valid
+      and desired AWS region is configured
+
 Helpful Commands
 $ aws configure list
 $ aws ec2 describe-instances

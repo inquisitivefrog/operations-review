@@ -1,0 +1,26 @@
+SMART: Self-Monitoring, Analysis and Reporting Technology for HDD, SDD, eMMC
+       disks allows detect and report hardware failures
+
+Installation
+$ sudo yum install -y smartmontools
+
+Management
+$ sudo systemctl status smartd
+
+HDD Status
+$ sudo dmesg
+NOTE: disk errors displayed here as well as directed to /dev/console
+$ sudo systemctl status smartd
+$ sudo smartctl -i /dev/sda
+NOTE: SMART support disabled on VM
+$ sudo smartctl -H /dev/sda
+$ sudo smartctl -a /dev/sda
+
+HDD Test
+$ sudo smartctl -c /dev/sda
+$ sudo smartctl -l selftest /dev/sda
+$ sudo smartctl --test=short /dev/sda > /var/log/sda_shorttest.log
+$ sudo smartctl --test=long /dev/sda > /var/log/sda_longtest.log
+$ sudo smartctl -l error /dev/sda
+
+  

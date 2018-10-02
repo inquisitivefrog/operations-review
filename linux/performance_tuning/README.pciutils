@@ -1,0 +1,24 @@
+
+pciutils: PCI bus installed cards detection of Video, Network, Disk cards
+
+Installation
+$ sudo yum install -y pciutils
+
+Management
+$ sudo systemctl status pcid
+
+Usage
+$ lspci 
+$ lspci -nn
+$ lspci -mm
+$ lspci -v
+NOTE: detailed info
+$ lspci -t
+NOTE: bus diagram as a tree
+$ lspci -d <vendor:device>
+$ lspci -s <domain:bus:slot.func>
+NOTE: device by detail
+$ lspci -k
+NOTE: kernel modules
+
+

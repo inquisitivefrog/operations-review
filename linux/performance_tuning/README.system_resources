@@ -1,0 +1,16 @@
+
+CPU usage tools
+$ top
+$ ps -ef
+$ vmstat -s | grep CPU
+
+Disk I/O usage tools
+$ iostat
+
+Network Bandwidth usage tools
+$ netstat
+
+System Memory usage tools
+$ vmstat
+$ vmstat -s | grep swapped
+$ free

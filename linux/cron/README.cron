@@ -1,0 +1,17 @@
+
+cron: scheduler for UNIX activity
+
+Usage
+$ crontab -e
+A B C D E F G
+$ sudo crontab -u <user>
+NOTE: read someone else's scheduled activities
+
+Legend
+A: minutes or */x is every X minutes
+B: hours
+C: days of month
+D: month
+E: day of week
+F: user
+G: command to be executed

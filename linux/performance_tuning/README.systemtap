@@ -1,0 +1,9 @@
+
+Additional Statistics can be collected by probing kernel modules using system tap
+
+Installation
+$ sudo yum install -y systemtap systemtap-runtime
+$ sudo yum install -y subscription-manager
+$ sudo subscription-manager repos --enable=rhel-7-5-debug-rpms
+NOTE: this requires a RHEL service support contract in order to access RHSM
+
