@@ -1,0 +1,27 @@
+
+NFS: Network File System allows UNIX or Linux nodes to share access if
+     users match UID in /etc/password or NIS is deployed, v4 was popular when
+     Sun MicroSystems was king, but now is just legacy accessed from Linux
+
+Installation
+$ sudo yum install -y nfs-utils policycoreutils-python
+
+Server Configuration
+$ sudo mkdir /srv/nfsexport
+$ sudo semanage fcontext -a -t nfs_t "/srv/nfsexport(/,*)?"
+$ sudo restorecon -Rv /srv/nfsexport
+$ sudo systemctl start nfs-server
+$ sudo systemctl enable nfs-server
+$ sudo firewall-cmd --permanent systemctl --add-service nfs
+$ sudo firewall-cmd --permanent systemctl --add-service mountd
+$ sudo firewall-cmd --permanent systemctl --add-service rpc-bind
+$ sudo firewall-cmd --reload
+
+Client Configuration
+$ sudo mkdir /mnt/nfs
+$ sudo mount <server>:/srv/nfsexport /mnt/nfs
+$ sudo vi /etc/fstab
+<server>:/srv/nfsexport /mnt/nfs nfs _netdev 0 0
+Note: _netdev means delay auto mounting until network ready
+$ sudo systemctl status remote-fs.target
+

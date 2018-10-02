@@ -1,0 +1,66 @@
+
+Samba: remote file access for Windows nodes that support SMB to share files
+       or remote resources like Linux managed printers
+
+Installation
+$ sudo yum install -y samba cifs-utils samba-client
+Note: Windows users will need to be mapped to Linux users
+
+Server Configuration
+$ sudo useradd -s /sbin/nologin user1
+$ sudo useradd -s /sbin/nologin user2
+$ sudo useradd -s /sbin/nologin user3
+$ sudo groupadd sambagroup
+$ sudo usermod -aG sambagroup user1
+$ sudo usermod -aG sambagroup user2
+$ sudo usermod -aG sambagroup user3
+$ sudo smbpasswd -a user1
+$ sudo smbpasswd -a user2
+$ sudo smbpasswd -a user3
+$ sudo pdbedit -L
+Note: lists accounts created
+$ sudo mkdir -p /data/sambashare
+$ sudo chgrp sambagroup /data/sambashare
+$ sudo chmod g=rwx /data/sambashare
+
+$ sudo vi /etc/samba/smb.conf
+[global]
+security = user
+workgroup = mysamba
+host allow = node1, node2, node3
+log file = /var/logs/samba.log
+load printers = yes
+[home]
+writable = yes
+valid users = user1, user2, user3
+browseable = no
+[printers]
+path = /var/spool/samba
+browseable = no
+writable = no
+printable = yes
+$ sudo testparm
+Note: validates syntax in smb.conf
+$ sudo systemctl start smb
+$ sudo systemctl enable smb
+$ sudo semanage fcontext -a -t samba_share_t "/data/sambashare(/.*)?"
+$ sudo semaebool -P smbd_anon_write 1
+$ sudo restorecon -Rv /data/sambashare
+$ sudo firewall-cmd --permanent --add-service=samba
+$ sudo firewall-cmd --reload
+
+Client Configuration
+$ sudo yum install -y cifs-utils
+$ sudo smbclient -L //<server>
+$ sudo mkdir /mnt/user1
+$ sudo mount -o username=user1 //<server>/sambashare/mnt /mnt/user1
+Note: enter password
+$ touch /mnt/user1/i_did_it
+$ ls -l /mnt/user1/i_did_it
+
+Terms
+1) SMB: Server Message Block is a method for remote file sharing between
+        Windows nodes with NTFS file systems
+2) NetBIOS: layer 2 protocol for node discovery if on same network segment
+3) MDS: Microsoft Directory Services is access to Active Directory
+
