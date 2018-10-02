@@ -1,0 +1,44 @@
+
+yum: Red Hat Package Manager high level tool
+RPM: Red Hat Package Manager wherein entire Linux OS is divided into components
+     called packages able to be installed, removed, updated independently
+     allowing minimal configurations to reduce security holes and minimize
+     footprint but beware as many packages require prior existent of other
+     packages so things can snowball rather quickly
+
+Restrictions
+1) RHEL's value proposition is secure, tested OS and access to packages
+   after purchasing a service contract so no contract, no access
+2) CentOS's value proposition is slightly behind RHEL clone but free
+   including access to free packages from a non RHEL repository
+
+Files
+$ sudo view /etc/yum.conf
+$ sudo ls -l /etc/yum.repos.d
+CentOS-Base.repo
+CentOS-Debuginfo.repo
+epel.repo
+$ sudo ls -l /etc/pki/rpm-gpg
+RPM-GPG-KEY-CentOS-7
+RPM-GPG-KEY-CentOS-Debug-7
+RPM-GPG-KEY-EPEL-7
+
+Usage
+$ sudo yum install -y <package>
+$ sudo yum info <package>
+$ sudo yum search <package>
+$ sudo yum whatprovides */<command> 
+$ sudo yum remove -y <package>
+$ sudo yum update -y <package>
+$ sudo yum group install -y <package>
+$ sudo yum list installed
+$ sudo yum list all
+Note: this reads from repositories
+$ sudo yum group list
+Note: this sorts packages by group
+
+Terms
+1) yum: yellowdog update manager
+2) repository: online site that warehouses Linux packages
+3) epel: extra packages, ie. user contributions
+
