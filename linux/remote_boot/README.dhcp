@@ -1,0 +1,24 @@
+
+DHCP: dynamic host configuration protocol allows IP assignment by reverse
+      broadcast 
+
+Installation
+$ sudo yum install -y xinetd
+$ sudo yum install -y tftp tftp-server
+$ sudo yum install -y dhcp
+
+Configuration
+$ sudo systemctl start xinetd
+$ sudo systemctl enable xinetd
+$ sudo vi /etc/xinetd.d/tftp
+disabled=no
+$ sudo firewall-cmd --permanent --add-service=tftp
+$ sudo mkdir /var/lib/tftpboot/pxelinux
+$ sudo firewall-cmd --permanent --add-service=dhcp
+
+Files
+$ sudo ls -l /etc/xinetd.d
+$ sudo view /etc/xinetd.d/tftp
+$ sudo ls -l /etc/dhcp
+$ sudo view /etc/dhcp/dhcpd.conf
+$ sudo view /var/lib/tftpboot/pxelinux/pxelinu.cfg

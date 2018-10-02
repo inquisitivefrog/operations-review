@@ -1,0 +1,30 @@
+
+RFC: 783, 1350, 2347
+
+TFTP: trivial file transfer protocol
+1) assumes client, server reside on same network segment so broadcast
+2) works with UDP so no guaranteed delivery
+3) function limited to read from/write to remote server
+   a) cannot list directories
+   b) assumes no security so no authentication
+
+Protocol
+1) header
+   opcode: data or error
+   block number
+2) request connection and  
+   write file WRQ or 
+   read file RRQ
+   receive ACK
+3) send N data packets
+   send packet1 RRQ:1
+   receive ACK:1
+   send packetN RRQ:N
+   receive ACK:N or
+   receive timeout so ACK:N-1 last packet received
+   resend packetN RRQ:N 
+   return ACK:N
+   or send packetN RRQ:N
+   receive ERR
+   
+
