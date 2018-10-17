@@ -1,0 +1,23 @@
+class role::ci_server {
+  include profile::jenkins
+  include profile::myorg
+  include profile::hubot
+}
+
+Example
+
+class profile::jenkins {
+  $jenkins_port = hiera('jenkins_port')
+  $java_dist    = hiera('java_dist')
+  $java_version = hiera('java_version')
+
+  class { '::jenkins':
+    install_java => false,
+    port         => $jenkins_port,
+  }
+  class { '::java':
+    distribution => $java_dist,
+    version      => $java_version,
+    before       => Class['jenkins'],
+  }
+}

@@ -1,0 +1,19 @@
+
+Configuration
+# defines accessID, secretKey, defaultRegion, defaultOutputFormat, configFile
+$ aws configure
+$ aws <service> <command> --output table|text|json
+
+Account
+1) create a new account with creditcard at https://aws.amazon.com
+2) Use IAM service to add a substitute user with an Admin group consisting of 
+   AdministratorAccess and create and save access key locally as $HOME/.ssh/aws_<user>
+   and Save it elsewhere just in case laptop is stolen or damaged
+   
+
+Security
+1: Do not preserve AWS secrets in GitHub.com as it has been hacked and
+   crawled before
+2) AWS Security Bulletins
+   https://aws.amazon.com/security/security-bulletins
+3) Assume backups will be targeted so encrypt, compress when saving

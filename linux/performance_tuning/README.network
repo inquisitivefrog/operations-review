@@ -13,3 +13,28 @@ $ ip -s link
 $ netstat -i
 $ ethtool -S <nic>
 
+Additional Tools Not Yet Evaluated
+Bandwidth
+$ nload
+$ bmon
+$ slurm
+$ bwm-ng
+$ cbm
+$ speedometer
+$ netload
+
+Overall Bandwidth
+$ vnstat
+$ ifstat
+$ dstat
+$ collectl
+
+Bandwidth per Active Socket
+$ iftop
+$ iptraf
+$ pktstat
+$ netwatch
+$ trafshow
+
+Bandwidth per Process
+$ nethogs

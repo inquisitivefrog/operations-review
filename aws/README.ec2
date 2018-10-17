@@ -1,4 +1,6 @@
 
+Amazon Elastic Compute Cloud
+
 EC2 instances running any variant of Linux have unique default usernames
 
 Amazon Linux AMI: ec2-user
@@ -20,4 +22,51 @@ $ chmod 0400 ~/.ssh/demo.pem
 $ cd ~/.ssh
 $ ssh -i "demo.pem" ubuntu@54.209.209.120
 ubuntu@ip-172-31-41-195:~$ 
+
+Benefits
+1) configure EC2 instance once, then create an AMI image, then launch as additional instances, ie. clone
+
+Useful Commands
+$ aws ec2 monitor-instances
+$ aws ec2 reboot-instances
+$ aws ec2 run-instances
+$ aws ec2 start-instances
+$ aws ec2 stop-instances
+$ aws ec2 terminate-instances
+$ aws ec2 unmonitor-instances
+
+$ aws ec2 report-instance-status
+$ aws ec2 register-image
+$ aws ec2 import-image
+$ aws ec2 import-key-pair
+$ aws ec2 get-console-output
+$ aws ec2 detach-volume
+
+$ aws ec2 describe-vpcs
+$ aws ec2 describe-volumes
+$ aws ec2 describe-subnets
+$ aws ec2 describe-snapshots
+$ aws ec2 describe-route-tables
+$ aws ec2 describe-security-groups
+$ aws ec2 describe-regions
+$ aws ec2 describe-network-interfaces
+$ aws ec2 describe-key-pairs
+$ aws ec2 describe-instances
+$ aws ec2 describe-images
+$ aws ec2 describe-hosts
+$ aws ec2 describe-dhcp-options
+$ aws ec2 describe-availability-zones
+$ aws ec2 describe-addresses
+
+$ aws ec2 create-security-group
+$ aws ec2 create-subnet
+$ aws ec2 create-vpc
+$ aws ec2 create-route-table
+$ aws ec2 create-snapshot
+$ aws ec2 create-volume
+$ aws ec2 create-tags
+$ aws ec2 create-iamge
+$ aws ec2 create-key-pair
+$ aws ec2 create-dhcp-options
+$ aws ec2 create-default-vpc
 

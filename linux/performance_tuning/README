@@ -1,0 +1,21 @@
+
+# tid: thread ID
+# psr: CPU core
+export APP=./script.py
+$ for i in $(pgrep $APP); do ps -mo pid,tid,fname,user,psr -p $i;done
+
+$ for i in 1 2 3 4 5 6 do ./script.py & done
+$ ps -ef | grep script.py
+15119
+15120
+15121
+15122
+15123
+15124
+$ for p in 15119 15120 15121 15122 15123 15124 do taskset -c 1 -p $p done
+
+$ sudo yum install -y numactl
+$ numactl -H
+$ numactl -c 0,2,4,6 -p 15119
+
+https://www.glennklockwood.com/hpc-howtos/process-affinity.html

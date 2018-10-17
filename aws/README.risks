@@ -1,0 +1,23 @@
+
+Common Problems
+1) Despite the usual forms of environmental control,
+   a) A/C can still fail in an AZ
+   b) Power can still fail in an AZ
+   c) Network provider can still fail in an AZ
+2) Despite the usual forms of hardware redundancy, 
+   a) motherboards can still overheat
+   b) motherboards can have bad chips
+   c) disks can have bad blocks
+   d) disks can have bad platters
+   e) disks can have bad controllers
+   f) NICs can have confused chips
+   g) NICs can have bad ports
+3) Despite the usual security tricks,
+   a) DDoS can attack your site address
+   b) DNS can drop your domain
+
+AWS Specific Problems
+1) Entire AZ can be offline for different reasons
+2) AWS API might be inaccessible preventing CLI tools or SDK from accessing existing resources
+   to maintain by update or to recover from AZ failure by redeployment elsewhere
+ 

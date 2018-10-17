@@ -1,0 +1,19 @@
+
+AWS Regions
+As of 2018-08, 17 public regions worldwide
+In North America, consider
+1) us-west-1
+2) us-west-2
+3) us-east-1
+4) us-east-2
+
+$ aws ec2 describe-regions
+
+Availability Zone (AZ)
+As of 2018-10, AZ only defined for assigned region
+1) us-east-1 has 6 AZ (1a, 1b, 1c, 1d, 1e, 1f)
+2) us-east-2 has 3 AZ (2a, 2b, 2c)
+3) us-west-1 has 2 AZ (1a, 1b)
+4) us-west-2 has 3 AZ (2a, 2b, 2c)
+
+$ aws ec2 describe-availability-zones

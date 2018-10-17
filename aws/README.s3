@@ -1,6 +1,28 @@
 
+Amazon Simple Storage Service
+
+Incredibly High Uptime at low cost so great for
+1) periodic data transfer from customers for Pipeline Crunching
+2) rapidly accessible backup but not archive
+3) database snapshots such as pre-loaded tables when spinning up multiple instances
+
+Bucket Naming Conventions: Bucket can be URL so must be unique and [a-zA-Z0-9-]
+Copy: all files in source location copied by default unless --exclude "*" 
+      --include "<pattern>"
+
+
+
 Helpful Commands
 $ aws s3 ls
-$ aws s3 rm s3://mybucket --recursive
+$ aws s3 mb s3://<mybucket>
+$ aws s3 cp <directory_tree> s3://<mybucket> --exclude "*" --include "*.jpg"
+$ aws s3 mv <directory_tree> s3://<mybucket> --exclude "*" --include "*.jpg"
+$ aws s3 sync <directory_tree> s3://<mybucket> --exclude "*" --include "*.jpg"
+
+$ aws s3 rb
+$ aws s3 website
+$ aws s3 presign
+
+$ aws s3 rm s3://<mybucket> --recursive
 
 
