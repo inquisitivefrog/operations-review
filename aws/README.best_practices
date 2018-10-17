@@ -1,18 +1,33 @@
 
+Data Backup
+1) Always save to S3 then migrate to Glacier
+2) Perform restore from backup regularly to ensure that it is still working
+
 Architecture
 1) Design architecture to sustain loads at 80% system resource utilization
 
 EC2
 1) select a pre-existing or build your own AMI
-2) launch AMI with a variety of EC2 instance types then generate load in order to performance test best choice
-   before agreeing to devote company budget and production code to a specific configuration
-3) Periodically review and consider shifting between instances or at least migrating new features onto newer
-   instances to follow the Intel-like cost curve
-4) Monitor Disk I/O and network bandwidth for potential Noisy Neighbors sharing the same hardware, set HWM and
-   replace instance when threshold achieved
+2) launch AMI with a variety of EC2 instance types then generate load in order 
+   to performance test best choice before agreeing to devote company budget 
+   and production code to a specific configuration
+3) Periodically review and consider shifting between instances or at least 
+   migrating new features onto newer instances to follow the Intel-like cost 
+   curve
+4) Monitor Disk I/O and network bandwidth for potential Noisy Neighbors sharing 
+   the same hardware, set HWM and replace instance when threshold achieved
 5) If load requirements are significant, pay for Dedicated Hosts
 6) Unless Compute Serving, Always attach EBS but benchmark before deciding
 7) Use EBS snapshots as a data backup strategy then copy snapshots to S3 buckets
-8) Always use Auto Scaling even for 1 instance to protect against instance failure but auto start new instance
-9) Interested users or just DDoS?  Set MaxSize for Auto Scaling to prevent runaway cost
+8) Always use Auto Scaling even for 1 instance to protect against instance 
+   failure but auto start new instance
+9) Interested users or just DDoS?  Set MaxSize for Auto Scaling to prevent 
+   runaway cost
+
+S3
+1) Always encrypt to reduce success of hacking data
+2) Limit bucket access by AWS account identified by email_addr mapped to 
+   accessID, secret_key
+3) Because it is possible that transfers into buckets are interrupted always
+   allow AWS to auto clean up
 

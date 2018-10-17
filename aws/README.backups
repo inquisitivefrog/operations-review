@@ -1,11 +1,22 @@
 
-Despite relying on AWS, even if data is distributed across AZ or across Regions,
-a practical backup startegy is required.
+Despite relying on AWS, even if data is distributed across AZ or across 
+Regions, a practical backup startegy is required.
+
+Backup Schedule
+Small Database
+1) Dump full database to SQL monthly and weekly
+2) Dump database changes to SQL daily
+
+Big Database
+1) freeze Database activity
+2) take a volume snapshot
+3) unfreeze Database
+4) Do as often as needed depending on importance of data and estimated
+   recovery time
 
 Database Backup
-1) Rely in filesystem snapshots
-2) Dump full database to SQL monthly and weekly
-3) Dump database changes to SQL daily
+1) Rely on XFS filesystem and EBS volume snapshots
+4) Restore from EBS volume snapshot backup
 
 Web Site Backup
 1) Rely on filesystem snapshots
